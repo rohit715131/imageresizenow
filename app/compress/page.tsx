@@ -6,6 +6,18 @@ export const metadata: Metadata = {
   title: 'Compress Image Online Free - Reduce File Size in KB & MB',
   description:
     'Compress JPG, PNG, and WebP images online free. Target specific file sizes (20KB, 50KB, 100KB, 200KB) with live before/after preview. 100% private in browser.',
+  keywords: [
+    'image compressor',
+    'image compressor to 50kb',
+    'image compressor to 20kb',
+    'image compressor to 10kb',
+    'image compressor to 5kb',
+    'image compressor to 1kb',
+    'compress image to 25kb',
+    'jpg compress',
+    'image resize in kb',
+    'resize image in kb',
+  ],
   alternates: {
     canonical: 'https://imageresizenow.com/compress',
   },

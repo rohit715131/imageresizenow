@@ -6,6 +6,16 @@ export const metadata: Metadata = {
   title: "Resize Image Online Free - Change Dimensions Without Quality Loss",
   description:
     "Free online image resize. Resize images by exact pixels, percentage, or social media presets with aspect ratio lock. 100% private in your browser with zero uploads.",
+  keywords: [
+    "kb resize image",
+    "image resizer",
+    "image resize in kb",
+    "resize image in kb",
+    "resize image to 40kb",
+    "image resizer to 50kb",
+    "image resizer to 20kb",
+    "resize image by pixels",
+  ],
   alternates: {
     canonical: "https://imageresizenow.com/resize",
   },

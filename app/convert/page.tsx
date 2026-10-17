@@ -6,6 +6,14 @@ export const metadata: Metadata = {
   title: 'Convert Image Online Free - WebP, JPG, PNG, AVIF, HEIC',
   description:
     'Free online image converter. Convert between WebP, JPG, PNG, AVIF, and iPhone HEIC formats with transparent background handling. 100% private in your browser.',
+  keywords: [
+    'image converter',
+    'png to jpeg converter',
+    'convert png to webp',
+    'heic to jpg converter',
+    'jpg to png converter',
+    'webp converter',
+  ],
   alternates: {
     canonical: 'https://imageresizenow.com/convert',
   },

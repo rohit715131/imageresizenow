@@ -6,6 +6,14 @@ export const metadata: Metadata = {
   title: 'Crop Image Online Free - Aspect Ratio & Visual Selector',
   description:
     'Free online image cropper. Crop images to free or fixed aspect ratios (1:1, 16:9, 4:3, 9:16). Rotate 90 degrees and flip horizontal/vertical. 100% private in browser.',
+  keywords: [
+    'image cropper',
+    'crop image online',
+    'image editor',
+    'image processing',
+    'square photo cropper',
+    'rotate image online',
+  ],
   alternates: {
     canonical: 'https://imageresizenow.com/crop',
   },
