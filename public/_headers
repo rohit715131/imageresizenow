@@ -15,3 +15,6 @@
 
 /site.webmanifest
   Cache-Control: public, max-age=86400
+
+https://imageresizenow.rohitrajkasyap.workers.dev/*
+ X-Robots-Tag: noindex
