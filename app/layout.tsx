@@ -1,88 +1,111 @@
-import type { Metadata } from 'next';
-import './globals.css';
-import { ThemeProvider } from '@/components/ThemeProvider';
-import { Header } from '@/components/Header';
-import { Footer } from '@/components/Footer';
+import type { Metadata } from "next";
+import "./globals.css";
+import { ThemeProvider } from "@/components/ThemeProvider";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://imageresizenow.com'),
+  metadataBase: new URL("https://imageresizenow.com"),
   title: {
-    default: 'Free Online Image Toolkit - Resize, Compress, Convert, Crop (100% Private)',
-    template: '%s | ImageResizeNow',
+    default:
+      "Free Online Image Toolkit - Resize, Compress, Convert, Crop (100% Private)",
+    template: "%s | ImageResizeNow",
   },
   description:
-    'Free client-side image editor to resize, compress, convert, and crop images directly in your browser. No sign-up, no file size limits, 100% private with zero server uploads.',
+    "Free client-side image editor to resize, compress, convert, and crop images directly in your browser. No sign-up, no file size limits, 100% private with zero server uploads.",
   keywords: [
-    'image resizer',
-    'compress image online',
-    'compress image to 20kb',
-    'compress image to 50kb',
-    'convert png to webp',
-    'heic to jpg converter',
-    'crop image online',
-    'passport size photo maker',
-    'exam form photo resize',
-    'free online image toolkit',
+    "image resize",
+    "compress image online",
+    "compress image to 20kb",
+    "compress image to 50kb",
+    "convert png to webp",
+    "heic to jpg converter",
+    "crop image online",
+    "passport size photo maker",
+    "exam form photo resize",
+    "free online image toolkit",
+    "kb resize image",
+    "image resizer",
+    "image compressor",
+    "image converter",
+    "image cropper",
+    "image editor",
+    "image processing",
+    "client-side image processing",
+    "in-browser image processing",
+    "image resize in kb",
+    "resize image in kb",
+    "resize image to 40kb",
+    "jpg compress",
+    "png to jpeg converter",
+    "compress image to 25kb",
+    "image compressor to 50kb",
+    "image compressor to 20kb",
+    "image compressor to 10kb",
+    "image compressor to 5kb",
+    "image compressor to 1kb",
+    "image resizer to 50kb",
+    "image resizer to 20kb",
   ],
-  authors: [{ name: 'ImageResizeNow Team' }],
-  creator: 'ImageResizeNow',
-  publisher: 'ImageResizeNow',
+  authors: [{ name: "ImageResizeNow Team" }],
+  creator: "ImageResizeNow",
+  publisher: "ImageResizeNow",
   robots: {
     index: true,
     follow: true,
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
   openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    url: 'https://imageresizenow.com',
-    siteName: 'ImageResizeNow',
-    title: 'Free Online Image Toolkit - 100% Private In-Browser Image Tools',
+    type: "website",
+    locale: "en_US",
+    url: "https://imageresizenow.com",
+    siteName: "ImageResizeNow",
+    title: "Free Online Image Toolkit - 100% Private In-Browser Image Tools",
     description:
-      'Fast, free and 100% private. Resize, compress, convert, and crop images locally in your browser. Zero server uploads.',
+      "Fast, free and 100% private. Resize, compress, convert, and crop images locally in your browser. Zero server uploads.",
     images: [
       {
-        url: '/og-image.png',
+        url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: 'ImageResizeNow Free Online Image Toolkit',
+        alt: "ImageResizeNow Free Online Image Toolkit",
       },
     ],
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'Free Online Image Toolkit - 100% Private',
+    card: "summary_large_image",
+    title: "Free Online Image Toolkit - 100% Private",
     description:
-      'Fast, free and 100% private. Resize, compress, convert, and crop images locally in your browser. Zero server uploads.',
-    images: ['/og-image.png'],
+      "Fast, free and 100% private. Resize, compress, convert, and crop images locally in your browser. Zero server uploads.",
+    images: ["/og-image.png"],
   },
   icons: {
     icon: [
-      { url: '/favicon.ico' },
-      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: "/favicon.ico" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
     ],
     apple: [
-      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
     ],
     other: [
       {
-        rel: 'android-chrome-192x192',
-        url: '/android-chrome-192x192.png',
+        rel: "android-chrome-192x192",
+        url: "/android-chrome-192x192.png",
       },
       {
-        rel: 'android-chrome-512x512',
-        url: '/android-chrome-512x512.png',
+        rel: "android-chrome-512x512",
+        url: "/android-chrome-512x512.png",
       },
     ],
   },
-  manifest: '/site.webmanifest',
+  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({
