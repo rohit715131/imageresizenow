@@ -8,6 +8,11 @@ export interface BreadcrumbItem {
 }
 
 export function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
+  // Ensure "Home" is never duplicated if passed in items
+  const cleanItems = items.filter(
+    (item) => item.href !== '/' && item.name.toLowerCase() !== 'home'
+  );
+
   return (
     <nav aria-label="Breadcrumb" className="mb-4">
       <ol className="flex items-center flex-wrap gap-1.5 text-xs sm:text-sm text-slate-500 dark:text-slate-400">
@@ -20,8 +25,8 @@ export function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
             <span>Home</span>
           </Link>
         </li>
-        {items.map((item, index) => {
-          const isLast = index === items.length - 1;
+        {cleanItems.map((item, index) => {
+          const isLast = index === cleanItems.length - 1;
           return (
             <li key={item.href} className="inline-flex items-center gap-1.5">
               <ChevronRight className="w-3.5 h-3.5 text-slate-400 dark:text-slate-600 shrink-0" />

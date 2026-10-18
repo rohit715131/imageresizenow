@@ -34,7 +34,6 @@ export default function ReducePdfSizePage() {
     <PdfPageTemplate
       pageData={pageData}
       breadcrumbs={[
-        { name: 'Home', href: '/' },
         { name: 'Compress PDF', href: '/compress-pdf' },
         { name: 'Reduce PDF Size', href: pageData.route },
       ]}

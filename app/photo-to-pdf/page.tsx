@@ -34,7 +34,6 @@ export default function PhotoToPdfPage() {
     <PdfPageTemplate
       pageData={pageData}
       breadcrumbs={[
-        { name: 'Home', href: '/' },
         { name: 'Image to PDF', href: '/image-to-pdf' },
         { name: 'Photo to PDF', href: pageData.route },
       ]}

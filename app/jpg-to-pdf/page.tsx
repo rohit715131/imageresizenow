@@ -34,7 +34,6 @@ export default function JpgToPdfPage() {
     <PdfPageTemplate
       pageData={pageData}
       breadcrumbs={[
-        { name: 'Home', href: '/' },
         { name: 'Image to PDF', href: '/image-to-pdf' },
         { name: 'JPG to PDF', href: pageData.route },
       ]}

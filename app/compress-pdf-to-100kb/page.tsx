@@ -34,7 +34,6 @@ export default function CompressPdfTo100kbPage() {
     <PdfPageTemplate
       pageData={pageData}
       breadcrumbs={[
-        { name: 'Home', href: '/' },
         { name: 'Compress PDF', href: '/compress-pdf' },
         { name: 'Compress to 100KB', href: pageData.route },
       ]}

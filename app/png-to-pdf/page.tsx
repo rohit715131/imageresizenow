@@ -34,7 +34,6 @@ export default function PngToPdfPage() {
     <PdfPageTemplate
       pageData={pageData}
       breadcrumbs={[
-        { name: 'Home', href: '/' },
         { name: 'Image to PDF', href: '/image-to-pdf' },
         { name: 'PNG to PDF', href: pageData.route },
       ]}

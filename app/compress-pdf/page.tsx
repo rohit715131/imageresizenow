@@ -37,7 +37,7 @@ export default function CompressPdfPage() {
     <PdfPageTemplate
       pageData={pageData}
       breadcrumbs={[
-        { name: 'Home', href: '/' },
+        { name: 'Tools', href: '/compress-pdf' },
         { name: 'Compress PDF', href: pageData.route },
       ]}
     />
