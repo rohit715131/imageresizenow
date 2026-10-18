@@ -128,11 +128,11 @@ export function CompressPdfTool({
                 onClick={() => setPreset(item.id)}
                 className={`p-3.5 sm:p-4 rounded-2xl border text-left transition-all relative ${
                   isSelected
-                    ? 'border-blue-500 bg-blue-50/70 dark:bg-blue-950/50 shadow-md shadow-blue-500/10'
-                    : 'border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/40 hover:border-slate-300 dark:hover:border-slate-700'
+                    ? 'border-blue-600 bg-blue-50/80 dark:bg-blue-950/70 shadow-md shadow-blue-500/10 dark:border-blue-500'
+                    : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 hover:border-slate-300 dark:hover:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800/40'
                 }`}
               >
-                <div className="flex items-center justify-between gap-1 mb-1">
+                <div className="flex items-center justify-between gap-1 mb-1.5">
                   <span
                     className={`font-bold text-sm ${
                       isSelected
@@ -143,16 +143,22 @@ export function CompressPdfTool({
                     {item.title}
                   </span>
                   <span
-                    className={`text-[10px] font-bold px-1.5 py-0.5 rounded-md ${
+                    className={`text-[10px] font-bold px-2 py-0.5 rounded-full tracking-wide ${
                       isSelected
-                        ? 'bg-blue-600 text-white'
-                        : 'bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300'
+                        ? 'bg-blue-600 text-white shadow-sm'
+                        : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200/80 dark:border-slate-700'
                     }`}
                   >
                     {item.badge}
                   </span>
                 </div>
-                <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-tight">
+                <p
+                  className={`text-[11px] leading-snug ${
+                    isSelected
+                      ? 'text-blue-700 dark:text-blue-200 font-medium'
+                      : 'text-slate-500 dark:text-slate-400'
+                  }`}
+                >
                   {item.desc}
                 </p>
               </button>
