@@ -127,7 +127,7 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-1 lg:gap-1.5 text-sm font-medium">
+          <nav className="hidden lg:flex items-center gap-1 xl:gap-2 text-sm font-medium">
             {/* 1. Resize Menu */}
             <div
               className="relative"
@@ -135,14 +135,14 @@ export function Header() {
               onMouseLeave={() => setOpenDropdown(null)}
             >
               <div
-                className={`inline-flex items-center rounded-xl transition-colors ${
+                className={`inline-flex items-center rounded-xl transition-colors whitespace-nowrap ${
                   isResizeActive
                     ? 'bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 font-semibold'
                     : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'
                 }`}
               >
-                <Link href="/resize" className="px-2.5 py-2 flex items-center gap-1.5">
-                  <Maximize2 className="w-4 h-4 text-blue-500" />
+                <Link href="/resize" className="px-2.5 py-2 flex items-center gap-1.5 whitespace-nowrap">
+                  <Maximize2 className="w-4 h-4 text-blue-500 shrink-0" />
                   <span>Resize</span>
                 </Link>
                 <button
@@ -191,14 +191,14 @@ export function Header() {
               onMouseLeave={() => setOpenDropdown(null)}
             >
               <div
-                className={`inline-flex items-center rounded-xl transition-colors ${
+                className={`inline-flex items-center rounded-xl transition-colors whitespace-nowrap ${
                   isCompressActive
                     ? 'bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 font-semibold'
                     : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'
                 }`}
               >
-                <Link href="/compress" className="px-2.5 py-2 flex items-center gap-1.5">
-                  <FileArchive className="w-4 h-4 text-blue-500" />
+                <Link href="/compress" className="px-2.5 py-2 flex items-center gap-1.5 whitespace-nowrap">
+                  <FileArchive className="w-4 h-4 text-blue-500 shrink-0" />
                   <span>Compress</span>
                 </Link>
                 <button
@@ -247,14 +247,14 @@ export function Header() {
               onMouseLeave={() => setOpenDropdown(null)}
             >
               <div
-                className={`inline-flex items-center rounded-xl transition-colors ${
+                className={`inline-flex items-center rounded-xl transition-colors whitespace-nowrap ${
                   isConvertActive
                     ? 'bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 font-semibold'
                     : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'
                 }`}
               >
-                <Link href="/convert" className="px-2.5 py-2 flex items-center gap-1.5">
-                  <RefreshCw className="w-4 h-4 text-blue-500" />
+                <Link href="/convert" className="px-2.5 py-2 flex items-center gap-1.5 whitespace-nowrap">
+                  <RefreshCw className="w-4 h-4 text-blue-500 shrink-0" />
                   <span>Convert</span>
                 </Link>
                 <button
@@ -299,19 +299,19 @@ export function Header() {
             {/* 4. Crop (Direct Link) */}
             <Link
               href="/crop"
-              className={`px-3 py-2 rounded-xl transition-colors flex items-center gap-1.5 ${
+              className={`px-3 py-2 rounded-xl transition-colors flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
                 isCropActive
                   ? 'bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 font-semibold'
                   : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'
               }`}
             >
-              <Crop className="w-4 h-4 text-blue-500" />
+              <Crop className="w-4 h-4 text-blue-500 shrink-0" />
               <span>Crop</span>
             </Link>
 
             {/* 5. PDF Tools Suite Menu */}
             <div
-              className="relative"
+              className="relative shrink-0"
               onMouseEnter={() => setOpenDropdown('pdf')}
               onMouseLeave={() => setOpenDropdown(null)}
             >
@@ -319,15 +319,15 @@ export function Header() {
                 type="button"
                 onClick={(e) => toggleDropdown('pdf', e)}
                 aria-expanded={openDropdown === 'pdf'}
-                className={`px-3 py-2 rounded-xl transition-colors flex items-center gap-1.5 ${
+                className={`px-3 py-2 rounded-xl transition-colors flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
                   isPdfActive
                     ? 'bg-red-50 dark:bg-red-950/60 text-red-600 dark:text-red-400 font-semibold'
                     : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'
                 }`}
               >
-                <FileText className="w-4 h-4 text-red-500" />
-                <span>PDF Tools</span>
-                <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform duration-150 ${openDropdown === 'pdf' ? 'rotate-180' : ''}`} />
+                <FileText className="w-4 h-4 text-red-500 shrink-0" />
+                <span className="whitespace-nowrap">PDF Tools</span>
+                <ChevronDown className={`w-3.5 h-3.5 text-slate-400 shrink-0 transition-transform duration-150 ${openDropdown === 'pdf' ? 'rotate-180' : ''}`} />
               </button>
 
               {openDropdown === 'pdf' && (
@@ -370,13 +370,13 @@ export function Header() {
             {/* 6. Guides Link */}
             <Link
               href="/guides"
-              className={`px-3 py-2 rounded-xl transition-colors flex items-center gap-1.5 ${
+              className={`px-3 py-2 rounded-xl transition-colors flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
                 isGuidesActive
                   ? 'bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 font-semibold'
                   : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'
               }`}
             >
-              <BookOpen className="w-4 h-4 text-slate-400" />
+              <BookOpen className="w-4 h-4 text-slate-400 shrink-0" />
               <span>Guides</span>
             </Link>
           </nav>
@@ -407,7 +407,7 @@ export function Header() {
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               type="button"
-              className="md:hidden p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200"
+              className="lg:hidden p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200"
               aria-label="Toggle Navigation Menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -418,7 +418,7 @@ export function Header() {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 pt-3 pb-6 space-y-4 max-h-[85vh] overflow-y-auto">
+        <div className="lg:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 pt-3 pb-6 space-y-4 max-h-[85vh] overflow-y-auto">
           {/* Main Tool Grid */}
           <div className="grid grid-cols-2 gap-2">
             <Link

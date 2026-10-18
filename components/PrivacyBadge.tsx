@@ -19,27 +19,30 @@ export function PrivacyBadge({ className = '' }: { className?: string }) {
 
 export function PrivacyCard() {
   return (
-    <div className="rounded-2xl p-6 bg-gradient-to-br from-emerald-500/10 via-teal-500/5 to-cyan-500/10 border border-emerald-500/20 text-slate-800 dark:text-slate-200">
-      <div className="flex items-start gap-4">
-        <div className="p-3 rounded-xl bg-emerald-500 text-white shrink-0 shadow-md shadow-emerald-500/20">
-          <Lock className="w-6 h-6" />
+    <div className="rounded-2xl p-4 sm:p-6 bg-gradient-to-br from-emerald-500/10 via-teal-500/5 to-cyan-500/10 border border-emerald-500/20 text-slate-800 dark:text-slate-200">
+      <div className="flex items-start gap-3 sm:gap-4">
+        <div className="p-2 sm:p-3 rounded-xl bg-emerald-500 text-white shrink-0 shadow-md shadow-emerald-500/20">
+          <Lock className="w-4 h-4 sm:w-6 sm:h-6" />
         </div>
-        <div>
-          <h3 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+        <div className="flex-1 min-w-0">
+          <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white leading-snug">
             Zero Server Uploads. Your Privacy is 100% Guaranteed.
           </h3>
-          <p className="mt-1 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+          <p className="mt-1.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
             Unlike other online image converters that transfer your confidential documents, family pictures, and signatures to remote cloud servers, this toolkit runs WebAssembly and HTML5 Canvas algorithms entirely inside your browser sandbox. Your files never leave your device.
           </p>
-          <div className="mt-3 flex items-center gap-6 text-xs font-medium text-emerald-700 dark:text-emerald-400">
-            <span className="flex items-center gap-1.5">
-              <EyeOff className="w-3.5 h-3.5" /> No tracking cookies
+          <div className="mt-3.5 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-medium text-emerald-700 dark:text-emerald-400">
+            <span className="inline-flex items-center gap-1.5 whitespace-nowrap">
+              <EyeOff className="w-3.5 h-3.5 shrink-0" />
+              <span>No tracking cookies</span>
             </span>
-            <span className="flex items-center gap-1.5">
-              <ShieldCheck className="w-3.5 h-3.5" /> No file storage
+            <span className="inline-flex items-center gap-1.5 whitespace-nowrap">
+              <ShieldCheck className="w-3.5 h-3.5 shrink-0" />
+              <span>No file storage</span>
             </span>
-            <span className="flex items-center gap-1.5">
-              <Lock className="w-3.5 h-3.5" /> Offline capable
+            <span className="inline-flex items-center gap-1.5 whitespace-nowrap">
+              <Lock className="w-3.5 h-3.5 shrink-0" />
+              <span>Offline capable</span>
             </span>
           </div>
         </div>
