@@ -28,10 +28,10 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Tools */}
+          {/* Image Tools */}
           <div>
             <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-3">
-              Tools
+              Image Tools
             </h4>
             <ul className="space-y-2">
               <li>
@@ -52,6 +52,45 @@ export function Footer() {
               <li>
                 <Link href="/crop" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                   Crop & Rotate
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* PDF Tools */}
+          <div>
+            <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-3">
+              PDF Tools
+            </h4>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/image-to-pdf" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  Image to PDF
+                </Link>
+              </li>
+              <li>
+                <Link href="/jpg-to-pdf" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  JPG to PDF
+                </Link>
+              </li>
+              <li>
+                <Link href="/png-to-pdf" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  PNG to PDF
+                </Link>
+              </li>
+              <li>
+                <Link href="/compress-pdf" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  Compress PDF
+                </Link>
+              </li>
+              <li>
+                <Link href="/compress-pdf-to-100kb" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  Compress to 100 KB
+                </Link>
+              </li>
+              <li>
+                <Link href="/compress-pdf-to-200kb" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  Compress to 200 KB
                 </Link>
               </li>
             </ul>

@@ -74,10 +74,10 @@ const pageData: ProgrammaticPageData = {
     },
   ],
   relatedPages: [
-    { title: 'Compress to under 20KB', href: '/compress/20kb' },
+    { title: 'Compress PDF Online', href: '/compress-pdf' },
+    { title: 'Image to PDF Converter', href: '/image-to-pdf' },
     { title: 'Compress to under 50KB', href: '/compress/50kb' },
     { title: 'Compress to under 100KB', href: '/compress/100kb' },
-    { title: 'Resize to 1080×1080', href: '/resize/1080x1080' },
   ],
 };
 

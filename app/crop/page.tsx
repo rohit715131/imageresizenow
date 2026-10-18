@@ -70,9 +70,9 @@ const pageData: ProgrammaticPageData = {
     },
   ],
   relatedPages: [
+    { title: 'Convert Image to PDF', href: '/image-to-pdf' },
     { title: '1080×1080 Square Preset', href: '/resize/1080x1080' },
     { title: 'Passport Photo 600×600', href: '/resize/passport-photo' },
-    { title: 'YouTube Thumbnail 1280×720', href: '/preset/youtube-thumbnail' },
     { title: 'Compress to under 50KB', href: '/compress/50kb' },
   ],
 };

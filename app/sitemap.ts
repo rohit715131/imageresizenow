@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next';
 import { RESIZE_PAGES, COMPRESS_PAGES, CONVERT_PAGES, PRESET_PAGES } from '@/lib/programmatic-data';
 import { GUIDES } from '@/lib/guides-data';
+import { PDF_PAGES } from '@/features/pdf-tools/data';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://imageresizenow.com';
@@ -104,6 +105,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }));
 
+  // PDF Tools and Variant pages
+  const pdfRoutes: MetadataRoute.Sitemap = Object.values(PDF_PAGES).map((page) => ({
+    url: `${baseUrl}${page.route}`,
+    lastModified: now,
+    changeFrequency: 'weekly',
+    priority: page.slug === 'image-to-pdf' || page.slug === 'compress-pdf' ? 0.95 : 0.85,
+  }));
+
   return [
     ...staticRoutes,
     ...resizeRoutes,
@@ -111,5 +120,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...convertRoutes,
     ...presetRoutes,
     ...guideRoutes,
+    ...pdfRoutes,
   ];
 }

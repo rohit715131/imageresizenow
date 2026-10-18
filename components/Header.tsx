@@ -16,6 +16,7 @@ import {
   ShieldCheck,
   ChevronDown,
   BookOpen,
+  FileText,
 } from 'lucide-react';
 
 export function Header() {
@@ -53,6 +54,18 @@ export function Header() {
     { name: 'PNG to JPG', href: '/convert/png-to-jpg' },
     { name: 'HEIC to JPG', href: '/convert/heic-to-jpg' },
     { name: 'JPG to AVIF', href: '/convert/jpg-to-avif' },
+  ];
+
+  const popularPdfTools = [
+    { name: 'Image to PDF', href: '/image-to-pdf' },
+    { name: 'JPG to PDF', href: '/jpg-to-pdf' },
+    { name: 'PNG to PDF', href: '/png-to-pdf' },
+    { name: 'Photo to PDF', href: '/photo-to-pdf' },
+    { name: 'Compress PDF', href: '/compress-pdf' },
+    { name: 'Compress PDF to 100KB', href: '/compress-pdf-to-100kb' },
+    { name: 'Compress PDF to 200KB', href: '/compress-pdf-to-200kb' },
+    { name: 'Compress PDF to 500KB', href: '/compress-pdf-to-500kb' },
+    { name: 'Reduce PDF Size', href: '/reduce-pdf-size' },
   ];
 
   return (
@@ -177,6 +190,74 @@ export function Header() {
               )}
             </div>
 
+            {/* PDF Tools Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => setOpenDropdown('pdf')}
+              onMouseLeave={() => setOpenDropdown(null)}
+            >
+              <button
+                type="button"
+                className={`px-3 py-2 rounded-xl transition-colors flex items-center gap-1 ${
+                  pathname.includes('pdf')
+                    ? 'bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 font-semibold'
+                    : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'
+                }`}
+              >
+                <FileText className="w-4 h-4 text-red-500" />
+                <span>PDF Tools</span>
+                <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
+              </button>
+              {openDropdown === 'pdf' && (
+                <div className="absolute top-full left-0 w-52 py-2 mt-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl shadow-slate-900/10">
+                  <div className="px-3 py-1 text-[10px] font-bold uppercase text-slate-400 tracking-wider">
+                    Image to PDF
+                  </div>
+                  <Link
+                    href="/image-to-pdf"
+                    className="block px-4 py-1.5 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-blue-50 dark:hover:bg-blue-950/50 hover:text-blue-600 dark:hover:text-blue-400"
+                  >
+                    Image to PDF (All)
+                  </Link>
+                  <Link
+                    href="/jpg-to-pdf"
+                    className="block px-4 py-1.5 text-xs text-slate-600 dark:text-slate-400 hover:bg-blue-50 dark:hover:bg-blue-950/50 hover:text-blue-600 dark:hover:text-blue-400"
+                  >
+                    JPG to PDF
+                  </Link>
+                  <Link
+                    href="/png-to-pdf"
+                    className="block px-4 py-1.5 text-xs text-slate-600 dark:text-slate-400 hover:bg-blue-50 dark:hover:bg-blue-950/50 hover:text-blue-600 dark:hover:text-blue-400"
+                  >
+                    PNG to PDF
+                  </Link>
+
+                  <div className="my-1 border-t border-slate-100 dark:border-slate-800" />
+                  <div className="px-3 py-1 text-[10px] font-bold uppercase text-slate-400 tracking-wider">
+                    Compress PDF
+                  </div>
+                  <Link
+                    href="/compress-pdf"
+                    className="block px-4 py-1.5 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-blue-50 dark:hover:bg-blue-950/50 hover:text-blue-600 dark:hover:text-blue-400"
+                  >
+                    Compress PDF
+                  </Link>
+                  <Link
+                    href="/compress-pdf-to-100kb"
+                    className="block px-4 py-1.5 text-xs text-slate-600 dark:text-slate-400 hover:bg-blue-50 dark:hover:bg-blue-950/50 hover:text-blue-600 dark:hover:text-blue-400"
+                  >
+                    Compress to 100 KB
+                  </Link>
+                  <Link
+                    href="/compress-pdf-to-200kb"
+                    className="block px-4 py-1.5 text-xs text-slate-600 dark:text-slate-400 hover:bg-blue-50 dark:hover:bg-blue-950/50 hover:text-blue-600 dark:hover:text-blue-400"
+                  >
+                    Compress to 200 KB
+                  </Link>
+                </div>
+              )}
+            </div>
+
             {/* Guides Link */}
             <Link
               href="/guides"
@@ -289,6 +370,34 @@ export function Header() {
                 className="py-1 text-slate-600 dark:text-slate-300 hover:text-blue-500"
               >
                 iPhone HEIC to JPG
+              </Link>
+              <Link
+                href="/image-to-pdf"
+                onClick={() => setMobileMenuOpen(false)}
+                className="py-1 text-slate-600 dark:text-slate-300 hover:text-red-500 font-semibold"
+              >
+                Image to PDF
+              </Link>
+              <Link
+                href="/compress-pdf"
+                onClick={() => setMobileMenuOpen(false)}
+                className="py-1 text-slate-600 dark:text-slate-300 hover:text-red-500 font-semibold"
+              >
+                Compress PDF
+              </Link>
+              <Link
+                href="/compress-pdf-to-100kb"
+                onClick={() => setMobileMenuOpen(false)}
+                className="py-1 text-slate-600 dark:text-slate-300 hover:text-red-500"
+              >
+                PDF to 100 KB
+              </Link>
+              <Link
+                href="/jpg-to-pdf"
+                onClick={() => setMobileMenuOpen(false)}
+                className="py-1 text-slate-600 dark:text-slate-300 hover:text-red-500"
+              >
+                JPG to PDF
               </Link>
               <Link
                 href="/guides"

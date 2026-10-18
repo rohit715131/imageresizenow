@@ -246,6 +246,7 @@ export const RESIZE_PAGES: Record<string, ProgrammaticPageData> = {
       }
     ],
     relatedPages: [
+      { title: 'Photo to PDF Converter', href: '/photo-to-pdf' },
       { title: 'Exam Photo Resize', href: '/resize/exam-photo' },
       { title: 'Compress to under 50KB', href: '/compress/50kb' },
       { title: 'Crop Square 1:1', href: '/crop' }
@@ -415,6 +416,7 @@ export const COMPRESS_PAGES: Record<string, ProgrammaticPageData> = {
     relatedPages: [
       { title: 'Compress to under 50KB', href: '/compress/50kb' },
       { title: 'Compress to under 200KB', href: '/compress/200kb' },
+      { title: 'Compress PDF to 100KB', href: '/compress-pdf-to-100kb' },
       { title: 'Convert PNG to WebP', href: '/convert/png-to-webp' }
     ]
   },
@@ -449,6 +451,7 @@ export const COMPRESS_PAGES: Record<string, ProgrammaticPageData> = {
     ],
     relatedPages: [
       { title: 'Compress to 100KB', href: '/compress/100kb' },
+      { title: 'Compress PDF to 200KB', href: '/compress-pdf-to-200kb' },
       { title: 'Compress to 1MB', href: '/compress/1mb' }
     ]
   },
@@ -483,6 +486,7 @@ export const COMPRESS_PAGES: Record<string, ProgrammaticPageData> = {
     ],
     relatedPages: [
       { title: 'Compress to 200KB', href: '/compress/200kb' },
+      { title: 'Compress PDF Online', href: '/compress-pdf' },
       { title: 'Convert JPG to WebP', href: '/convert/png-to-webp' }
     ]
   }
@@ -573,6 +577,7 @@ export const CONVERT_PAGES: Record<string, ProgrammaticPageData> = {
       }
     ],
     relatedPages: [
+      { title: 'JPG to PDF Converter', href: '/jpg-to-pdf' },
       { title: 'Convert PNG to JPG', href: '/convert/png-to-jpg' },
       { title: 'Resize to 1080x1080', href: '/resize/1080x1080' }
     ]
@@ -613,6 +618,7 @@ export const CONVERT_PAGES: Record<string, ProgrammaticPageData> = {
       }
     ],
     relatedPages: [
+      { title: 'PNG to PDF Converter', href: '/png-to-pdf' },
       { title: 'Convert JPG to PNG', href: '/convert/jpg-to-png' },
       { title: 'Compress to 50KB', href: '/compress/50kb' }
     ]

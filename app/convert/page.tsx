@@ -70,10 +70,10 @@ const pageData: ProgrammaticPageData = {
     },
   ],
   relatedPages: [
+    { title: 'Convert Image to PDF', href: '/image-to-pdf' },
+    { title: 'Compress PDF Online', href: '/compress-pdf' },
     { title: 'Convert PNG to WebP', href: '/convert/png-to-webp' },
     { title: 'Convert iPhone HEIC to JPG', href: '/convert/heic-to-jpg' },
-    { title: 'Convert JPG to PNG', href: '/convert/jpg-to-png' },
-    { title: 'Compress to under 100KB', href: '/compress/100kb' },
   ],
 };
 

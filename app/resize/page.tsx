@@ -84,9 +84,9 @@ const pageData: ProgrammaticPageData = {
     },
   ],
   relatedPages: [
+    { title: "Convert Image to PDF", href: "/image-to-pdf" },
     { title: "1080×1080 Square Preset", href: "/resize/1080x1080" },
     { title: "1200×630 OG Share Preset", href: "/resize/1200x630" },
-    { title: "Passport Photo 600×600", href: "/resize/passport-photo" },
     { title: "Compress to under 100KB", href: "/compress/100kb" },
   ],
 };
