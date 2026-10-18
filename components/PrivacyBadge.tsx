@@ -4,12 +4,14 @@ import { ShieldCheck, Lock, EyeOff } from 'lucide-react';
 export function PrivacyBadge({ className = '' }: { className?: string }) {
   return (
     <div
-      className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-emerald-50 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/80 shadow-sm transition-all ${className}`}
+      className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-emerald-50 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/80 shadow-sm transition-all whitespace-nowrap ${className}`}
     >
-      <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
-      <span className="flex items-center gap-1.5 flex-wrap">
-        <span className="font-semibold">100% Private:</span>
-        <span>Images are processed in your browser and never uploaded.</span>
+      <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
+      <span className="font-bold">100% Private</span>
+      <span className="text-emerald-400 dark:text-emerald-600">•</span>
+      <span className="text-emerald-700 dark:text-emerald-300">
+        <span className="inline sm:hidden">Zero Uploads</span>
+        <span className="hidden sm:inline">Processed in browser, never uploaded</span>
       </span>
     </div>
   );

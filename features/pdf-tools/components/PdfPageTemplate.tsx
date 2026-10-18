@@ -19,7 +19,6 @@ import {
   CheckCircle2,
   ArrowRight,
   Layers,
-  Lock,
 } from 'lucide-react';
 
 interface PdfPageTemplateProps {
@@ -68,10 +67,6 @@ export function PdfPageTemplate({ pageData, breadcrumbs }: PdfPageTemplateProps)
               {pageData.badge}
             </span>
             <PrivacyBadge />
-            <span className="px-3 py-1 rounded-full text-xs font-medium text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 flex items-center gap-1.5">
-              <Lock className="w-3.5 h-3.5 text-emerald-600" />
-              Your files never leave your device
-            </span>
           </div>
 
           <h1 className="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
