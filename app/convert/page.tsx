@@ -70,10 +70,11 @@ const pageData: ProgrammaticPageData = {
     },
   ],
   relatedPages: [
-    { title: 'Convert Image to PDF', href: '/image-to-pdf' },
-    { title: 'Compress PDF Online', href: '/compress-pdf' },
+    { title: 'Guide: WebP vs JPG vs AVIF', href: '/guides/webp-vs-jpg-vs-avif-comparison' },
     { title: 'Convert PNG to WebP', href: '/convert/png-to-webp' },
     { title: 'Convert iPhone HEIC to JPG', href: '/convert/heic-to-jpg' },
+    { title: 'JPG to Next-Gen AVIF', href: '/convert/jpg-to-avif' },
+    { title: 'Convert Image to PDF', href: '/image-to-pdf' },
   ],
 };
 

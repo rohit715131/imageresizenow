@@ -1,0 +1,5 @@
+# 301 Redirects: Consolidate preset routes to unified resize routes
+/preset/instagram-post /resize/1080x1080 301
+/preset/youtube-thumbnail /resize/1280x720 301
+/preset/exam-signature /resize/exam-signature 301
+/preset/* /resize 301

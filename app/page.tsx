@@ -324,7 +324,7 @@ export default function HomePage() {
                 </Link>
               </li>
               <li>
-                <Link href="/preset/youtube-thumbnail" className="hover:text-blue-500 flex items-center justify-between">
+                <Link href="/resize/1280x720" className="hover:text-blue-500 flex items-center justify-between">
                   <span>1280×720 YouTube Thumbnail</span>
                   <ArrowRight className="w-3 h-3 text-slate-400" />
                 </Link>
@@ -346,25 +346,31 @@ export default function HomePage() {
             <ul className="space-y-1.5 text-xs text-slate-600 dark:text-slate-300 font-medium">
               <li>
                 <Link href="/compress/20kb" className="hover:text-blue-500 flex items-center justify-between">
-                  <span>Compress Image to 20 KB</span>
+                  <span>Compress to 20 KB</span>
                   <ArrowRight className="w-3 h-3 text-slate-400" />
                 </Link>
               </li>
               <li>
                 <Link href="/compress/50kb" className="hover:text-blue-500 flex items-center justify-between">
-                  <span>Compress Image to 50 KB</span>
+                  <span>Compress to 50 KB</span>
                   <ArrowRight className="w-3 h-3 text-slate-400" />
                 </Link>
               </li>
               <li>
                 <Link href="/compress/100kb" className="hover:text-blue-500 flex items-center justify-between">
-                  <span>Compress Image to 100 KB</span>
+                  <span>Compress to 100 KB</span>
                   <ArrowRight className="w-3 h-3 text-slate-400" />
                 </Link>
               </li>
               <li>
                 <Link href="/compress/200kb" className="hover:text-blue-500 flex items-center justify-between">
-                  <span>Compress Image to 200 KB</span>
+                  <span>Compress to 200 KB</span>
+                  <ArrowRight className="w-3 h-3 text-slate-400" />
+                </Link>
+              </li>
+              <li>
+                <Link href="/compress/1mb" className="hover:text-blue-500 flex items-center justify-between">
+                  <span>Compress to 1 MB</span>
                   <ArrowRight className="w-3 h-3 text-slate-400" />
                 </Link>
               </li>
@@ -412,7 +418,7 @@ export default function HomePage() {
             <ul className="space-y-1.5 text-xs text-slate-600 dark:text-slate-300 font-medium">
               <li>
                 <Link href="/resize/passport-photo" className="hover:text-blue-500 flex items-center justify-between">
-                  <span>Passport Photo 600×600</span>
+                  <span>Passport Photo (2×2" / 600×600 px)</span>
                   <ArrowRight className="w-3 h-3 text-slate-400" />
                 </Link>
               </li>
@@ -423,7 +429,7 @@ export default function HomePage() {
                 </Link>
               </li>
               <li>
-                <Link href="/preset/exam-signature" className="hover:text-blue-500 flex items-center justify-between">
+                <Link href="/resize/exam-signature" className="hover:text-blue-500 flex items-center justify-between">
                   <span>Exam Signature 140×60</span>
                   <ArrowRight className="w-3 h-3 text-slate-400" />
                 </Link>
@@ -547,6 +553,26 @@ export default function HomePage() {
               </div>
             </Link>
           </div>
+
+          {/* Quick links to all specialized PDF variants */}
+          <div className="mt-4 pt-4 border-t border-slate-200/80 dark:border-slate-800/80 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs font-medium text-slate-600 dark:text-slate-300">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">More PDF Tools:</span>
+            <Link href="/png-to-pdf" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              PNG to PDF
+            </Link>
+            <Link href="/photo-to-pdf" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              Photo to PDF
+            </Link>
+            <Link href="/compress-pdf-to-200kb" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              Compress PDF to 200 KB
+            </Link>
+            <Link href="/compress-pdf-to-500kb" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              Compress PDF to 500 KB
+            </Link>
+            <Link href="/reduce-pdf-size" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              Reduce PDF Size
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -652,6 +678,92 @@ export default function HomePage() {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Optimization Guides Showcase */}
+      <section className="py-8 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 mb-6">
+          <div>
+            <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
+              Optimization Guides &amp; Tutorials
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
+              Step-by-step walkthroughs for image downscaling, PDF generation, and format selection.
+            </p>
+          </div>
+          <Link
+            href="/guides"
+            className="text-xs sm:text-sm font-semibold text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1 shrink-0"
+          >
+            <span>All Guides</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <Link
+            href="/guides/how-to-reduce-image-size-without-losing-quality"
+            className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-blue-500 transition-all group shadow-sm flex flex-col justify-between"
+          >
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400 block mb-1.5">
+                Image Optimization • 6 min
+              </span>
+              <h3 className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-blue-600 transition-colors">
+                How to Reduce Image Size Without Losing Quality
+              </h3>
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+                Proven methods to shrink image file weights by up to 80% while retaining crisp detail.
+              </p>
+            </div>
+            <div className="mt-4 flex items-center gap-1 text-xs font-semibold text-blue-600 dark:text-blue-400">
+              <span>Read Tutorial</span>
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </Link>
+
+          <Link
+            href="/guides/how-to-convert-images-to-pdf"
+            className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-blue-500 transition-all group shadow-sm flex flex-col justify-between"
+          >
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-red-600 dark:text-red-400 block mb-1.5">
+                PDF Guide • 6 min
+              </span>
+              <h3 className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-blue-600 transition-colors">
+                How to Convert Images to PDF Online Privately
+              </h3>
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+                Format smartphone receipts and photos into clean A4 or Letter PDFs without remote server uploads.
+              </p>
+            </div>
+            <div className="mt-4 flex items-center gap-1 text-xs font-semibold text-red-600 dark:text-red-400">
+              <span>Read Tutorial</span>
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </Link>
+
+          <Link
+            href="/guides/how-to-compress-pdf-documents"
+            className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-blue-500 transition-all group shadow-sm flex flex-col justify-between"
+          >
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 block mb-1.5">
+                PDF Guide • 6 min
+              </span>
+              <h3 className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-blue-600 transition-colors">
+                How to Compress PDF Files for Application Portals
+              </h3>
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+                Reduce heavy PDF files to 100 KB or 200 KB for admission portals while keeping signatures sharp.
+              </p>
+            </div>
+            <div className="mt-4 flex items-center gap-1 text-xs font-semibold text-emerald-600 dark:text-emerald-400">
+              <span>Read Tutorial</span>
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </Link>
         </div>
       </section>
 

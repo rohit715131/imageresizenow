@@ -51,10 +51,10 @@ export const RESIZE_PAGES: Record<string, ProgrammaticPageData> = {
       }
     ],
     relatedPages: [
-      { title: 'Resize to 1200x630 (Facebook & Twitter)', href: '/resize/1200x630' },
-      { title: 'Resize to 500x500 (E-commerce)', href: '/resize/500x500' },
-      { title: 'Instagram Post Preset', href: '/preset/instagram-post' },
-      { title: 'Compress to under 100KB', href: '/compress/100kb' }
+      { title: 'Resize to 1200×630 (Social Share)', href: '/resize/1200x630' },
+      { title: 'Resize to 500×500 (Avatar)', href: '/resize/500x500' },
+      { title: 'YouTube Thumbnail (1280×720)', href: '/resize/1280x720' },
+      { title: 'Compress to 100 KB', href: '/compress/100kb' }
     ]
   },
   '1200x630': {
@@ -136,9 +136,9 @@ export const RESIZE_PAGES: Record<string, ProgrammaticPageData> = {
       }
     ],
     relatedPages: [
-      { title: 'YouTube Thumbnail Preset', href: '/preset/youtube-thumbnail' },
-      { title: 'Resize to Full HD 1920x1080', href: '/resize/1920x1080' },
-      { title: 'Compress to under 1MB', href: '/compress/1mb' }
+      { title: 'Square Instagram Post (1080×1080)', href: '/resize/1080x1080' },
+      { title: 'Resize to Full HD 1920×1080', href: '/resize/1920x1080' },
+      { title: 'Compress to 1 MB', href: '/compress/1mb' }
     ]
   },
   '1920x1080': {
@@ -287,9 +287,53 @@ export const RESIZE_PAGES: Record<string, ProgrammaticPageData> = {
       }
     ],
     relatedPages: [
-      { title: 'Exam Signature Resize (140x60)', href: '/preset/exam-signature' },
-      { title: 'Compress to under 20KB', href: '/compress/20kb' },
-      { title: 'Compress to under 50KB', href: '/compress/50kb' }
+      { title: 'Exam Signature Resize (140×60)', href: '/resize/exam-signature' },
+      { title: 'Compress to 20 KB', href: '/compress/20kb' },
+      { title: 'Compress to 50 KB', href: '/compress/50kb' }
+    ]
+  },
+  'exam-signature': {
+    slug: 'exam-signature',
+    title: 'Resize Exam Signature to 140x60 Pixels (Under 20 KB Online)',
+    metaDescription: 'Resize signature for online exam application forms to 140x60 pixels and under 20KB free. Standard format for government, banking, and university portals.',
+    h1: 'Resize Signature for Online Exam Application Form',
+    toolType: 'resize',
+    badge: 'Official Signature Size',
+    description: 'Crop and resize scanned signatures to 140x60 pixels and under 10 KB to 20 KB. Clean black ink on white background for online admit cards and exam forms.',
+    defaultConfig: {
+      width: 140,
+      height: 60,
+    },
+    howToSteps: [
+      { name: 'Upload Signature Scan', text: 'Upload photo or scan of your handwritten signature.' },
+      { name: '140x60 Dimensions', text: 'Standard examination portal signature dimensions pre-set.' },
+      { name: 'Target Under 20 KB', text: 'Compresses signature cleanly without ink distortion.' },
+      { name: 'Submit Online', text: 'Download and upload directly to your application.' },
+    ],
+    faqs: [
+      {
+        question: 'What is the standard size for signatures on exam forms?',
+        answer: '140 pixels width by 60 pixels height, with file size typically between 10 KB and 20 KB in JPEG format.'
+      },
+      {
+        question: 'How do I ensure my signature is accepted?',
+        answer: 'Sign with black ink on unlined plain white paper, ensure good lighting when photographing, and use our tool to lock 140x60 pixels.'
+      },
+      {
+        question: 'Will my signature remain private?',
+        answer: 'Yes. Processing runs entirely in your local browser sandbox. Your signature is never uploaded to any remote server.'
+      }
+    ],
+    contentSections: [
+      {
+        title: 'Hassle-Free Exam Application Submissions',
+        content: 'Failing to adhere to signature dimensional restrictions is among the most frequent reasons online application forms show error popups. Our signature tool removes all guesswork with exact 140x60 calibration.'
+      }
+    ],
+    relatedPages: [
+      { title: 'Govt Exam Photo Resize (200×230)', href: '/resize/exam-photo' },
+      { title: 'Compress to 20 KB', href: '/compress/20kb' },
+      { title: 'Compress to 10 KB', href: '/compress/10kb' }
     ]
   }
 };
@@ -298,13 +342,130 @@ export const RESIZE_PAGES: Record<string, ProgrammaticPageData> = {
 // COMPRESS PROGRAMMATIC PAGES
 // ==========================================
 export const COMPRESS_PAGES: Record<string, ProgrammaticPageData> = {
+  '1kb': {
+    slug: '1kb',
+    title: 'Compress Image to 1KB Online Free (Extreme Low KB Compressor)',
+    metaDescription: 'Compress image to 1KB online free in your browser. Ultra-lightweight image compression for micro-icons, tiny thumbnails, and extreme bandwidth limits.',
+    h1: 'Compress Image to Under 1KB Online',
+    toolType: 'compress',
+    badge: 'Under 1 KB Target',
+    description: 'Compress images to 1 KB or less directly in your browser. Designed for extreme bandwidth constraints, micro favicon graphics, and minimalist thumbnails.',
+    defaultConfig: {
+      targetKb: 1,
+    },
+    howToSteps: [
+      { name: 'Upload Image', text: 'Select or drop your image file into the compressor.' },
+      { name: '1 KB Target Active', text: 'Target size is pre-calibrated to 1 KB.' },
+      { name: 'Aggressive Quantization', text: 'Engine scales canvas dimensions and optimizes color tables.' },
+      { name: 'Download Result', text: 'Save your micro-sized sub-1KB file immediately.' },
+    ],
+    faqs: [
+      {
+        question: 'Can any photo really be compressed to 1KB?',
+        answer: 'Yes, but photographic detail must be downscaled to micro-thumbnail dimensions (e.g. 32x32 to 64x64 px) with heavy color quantization to fit within 1024 bytes.'
+      },
+      {
+        question: 'What are 1KB images used for?',
+        answer: '1KB images are typically used for micro favicons, low-bandwidth IoT sensor displays, placeholder blur hashes, and ultra-lightweight thumbnails.'
+      }
+    ],
+    contentSections: [
+      {
+        title: 'Extreme 1KB Compression for Ultra-Lightweight Web Assets',
+        content: 'Fitting a graphic into less than 1,024 bytes is one of the most stringent optimizations in web development. Our iterative binary search algorithm calculates the exact threshold between resolution reduction and quantization to reach this target.'
+      }
+    ],
+    relatedPages: [
+      { title: 'Compress to 5 KB', href: '/compress/5kb' },
+      { title: 'Compress to 10 KB', href: '/compress/10kb' },
+      { title: 'Compress to 20 KB', href: '/compress/20kb' }
+    ]
+  },
+  '5kb': {
+    slug: '5kb',
+    title: 'Compress Image to 5KB Online Free (Micro Thumbnail & Icon Size)',
+    metaDescription: 'Compress image to under 5KB online free. Fast in-browser compression for small website icons, thumbnails, and low-bandwidth portals without server uploads.',
+    h1: 'Compress Image to Under 5KB Online',
+    toolType: 'compress',
+    badge: 'Under 5 KB Target',
+    description: 'Shrink graphics and small photos to under 5 KB with zero server uploads. High-speed local compression for UI icons, forum avatars, and strict portal caps.',
+    defaultConfig: {
+      targetKb: 5,
+    },
+    howToSteps: [
+      { name: 'Upload Photo or Icon', text: 'Choose your small photo, avatar, or icon.' },
+      { name: '5 KB Target Selected', text: 'Locked to strict 5 KB ceiling.' },
+      { name: 'In-Browser Compression', text: 'Runs locally in milliseconds using HTML5 Canvas.' },
+      { name: 'Download File', text: 'Download your verified sub-5KB file with no watermark.' },
+    ],
+    faqs: [
+      {
+        question: 'How does the tool achieve 5KB without completely breaking the image?',
+        answer: 'The engine uses multi-pass binary search downsampling to find the exact resolution and compression ratio that fits under 5,120 bytes.'
+      },
+      {
+        question: 'Is 5KB suitable for signatures or avatars?',
+        answer: 'Yes, 5KB is ideal for black-and-white signature crops and low-resolution forum avatars.'
+      }
+    ],
+    contentSections: [
+      {
+        title: 'Meeting Strict 5KB Digital Submission Limits',
+        content: 'Certain legacy forms and SMS gateway attachments require images under 5KB. Our client-side compressor strips unnecessary EXIF metadata and optimizes pixel palettes to stay strictly under the limit.'
+      }
+    ],
+    relatedPages: [
+      { title: 'Compress to 1 KB', href: '/compress/1kb' },
+      { title: 'Compress to 10 KB', href: '/compress/10kb' },
+      { title: 'Compress to 20 KB', href: '/compress/20kb' }
+    ]
+  },
+  '10kb': {
+    slug: '10kb',
+    title: 'Compress Image to 10KB Online Free (Signatures & Portal Uploads)',
+    metaDescription: 'Compress image under 10KB online free. Ideal for digital signatures, thumb impressions, and job portal registration forms with strict 10 KB limits.',
+    h1: 'Compress Image to Under 10KB Online',
+    toolType: 'compress',
+    badge: 'Under 10 KB Target',
+    description: 'Compress signatures, stamps, and candidate photos strictly under 10 KB for competitive examination portals, banking registration forms, and government portals.',
+    defaultConfig: {
+      targetKb: 10,
+    },
+    howToSteps: [
+      { name: 'Select Signature or Photo', text: 'Import your candidate signature or scanned document.' },
+      { name: '10 KB Target Active', text: 'Target size is calibrated to strictly under 10 KB.' },
+      { name: 'Binary Optimization', text: 'Calculates the optimal balance of contrast and file weight.' },
+      { name: 'Download for Upload', text: 'Ready for instant submission to government portals.' },
+    ],
+    faqs: [
+      {
+        question: 'Why do government portals demand signatures under 10KB?',
+        answer: 'Legacy database architectures enforce 10KB limits to ensure millions of applicant records fit within limited server storage.'
+      },
+      {
+        question: 'Will text in a 10KB signature remain legible?',
+        answer: 'Yes! Our algorithm preserves high-contrast dark strokes on white backgrounds, keeping handwriting clear and verifiable.'
+      }
+    ],
+    contentSections: [
+      {
+        title: 'Engineered for Government Exam Signatures & Portals',
+        content: 'From state PSCs to railway and banking recruitment forms, 10KB is among the most demanding file thresholds. Our tool ensures your signature meets every validation check on the first try.'
+      }
+    ],
+    relatedPages: [
+      { title: 'Compress to 20 KB', href: '/compress/20kb' },
+      { title: 'Exam Signature Resize', href: '/resize/exam-signature' },
+      { title: 'Compress to 50 KB', href: '/compress/50kb' }
+    ]
+  },
   '20kb': {
     slug: '20kb',
     title: 'Compress Image to 20KB Online Free (Photos & Signatures)',
     metaDescription: 'Compress image under 20KB online free. Optimize JPG or PNG for government exam portals, job applications, signatures, and document uploads. 100% private.',
     h1: 'Compress Image to Under 20KB Online',
     toolType: 'compress',
-    badge: 'Under 20 KB Guaranteed',
+    badge: 'Under 20 KB Target',
     description: 'Intelligent client-side image compression that reduces file weight strictly under 20 KB without unreadable pixelation. Tailored for candidate signatures and photo uploads.',
     defaultConfig: {
       targetKb: 20,
@@ -336,9 +497,88 @@ export const COMPRESS_PAGES: Record<string, ProgrammaticPageData> = {
       }
     ],
     relatedPages: [
-      { title: 'Compress to under 50KB', href: '/compress/50kb' },
+      { title: 'Compress to 25 KB', href: '/compress/25kb' },
+      { title: 'Compress to 50 KB', href: '/compress/50kb' },
       { title: 'Govt Exam Photo Resize', href: '/resize/exam-photo' },
-      { title: 'Exam Signature Preset', href: '/preset/exam-signature' }
+      { title: 'Exam Signature Resize', href: '/resize/exam-signature' }
+    ]
+  },
+  '25kb': {
+    slug: '25kb',
+    title: 'Compress Image to 25KB Online Free (Candidate Photo & Forms)',
+    metaDescription: 'Compress JPG or PNG images to under 25KB online free. Perfect for government job application forms, student admit cards, and portal verification.',
+    h1: 'Compress Image to Under 25KB Online',
+    toolType: 'compress',
+    badge: 'Under 25 KB Target',
+    description: 'Compress pictures and signatures strictly under 25 KB with zero server uploads. High quality retention for competitive exams, admissions, and state portals.',
+    defaultConfig: {
+      targetKb: 25,
+    },
+    howToSteps: [
+      { name: 'Upload Photo', text: 'Select, drag and drop, or paste your image.' },
+      { name: '25 KB Target Selected', text: 'Target size is calibrated to strictly under 25 KB.' },
+      { name: 'Browser Optimization', text: 'Runs multi-pass downscaling in local device memory.' },
+      { name: 'Download Compressed File', text: 'Save your verified sub-25KB photo ready for immediate upload.' },
+    ],
+    faqs: [
+      {
+        question: 'Which portals require images under 25KB?',
+        answer: 'Many state public service commission applications, police recruitment forms, and nursing board registration portals enforce an exact 20 KB to 25 KB ceiling.'
+      },
+      {
+        question: 'Will my photo become unrecognizably blurry at 25KB?',
+        answer: 'No. Our binary search adjusts pixel dimensions to approximately 200x250 or 300x300 px, retaining crisp facial features and clear background separation.'
+      }
+    ],
+    contentSections: [
+      {
+        title: 'Meeting Strict 25KB Application Requirements',
+        content: 'When an application portal says "File must be between 10 KB and 25 KB", trial and error can waste hours. Our tool calculates the exact compression curve in milliseconds right on your device.'
+      }
+    ],
+    relatedPages: [
+      { title: 'Compress to 20 KB', href: '/compress/20kb' },
+      { title: 'Compress to 40 KB', href: '/compress/40kb' },
+      { title: 'Compress to 50 KB', href: '/compress/50kb' }
+    ]
+  },
+  '40kb': {
+    slug: '40kb',
+    title: 'Resize & Compress Image to 40KB Online Free (Application Forms)',
+    metaDescription: 'Compress image to 40KB online free in your browser. Specifically calibrated for examination portals and employment applications requiring under 40 KB.',
+    h1: 'Compress Image to Under 40KB Online',
+    toolType: 'compress',
+    badge: 'Under 40 KB Target',
+    description: 'Reduce candidate photographs and certificates strictly under 40 KB without server uploads. Calibrated for national entrance exams and employment portals.',
+    defaultConfig: {
+      targetKb: 40,
+    },
+    howToSteps: [
+      { name: 'Select Candidate Photo', text: 'Choose your passport-style photo or certificate scan.' },
+      { name: '40 KB Target Active', text: 'Locked to an exact 40 KB upper limit.' },
+      { name: 'Local In-Browser Processing', text: 'Processed in milliseconds with hardware acceleration.' },
+      { name: 'Download & Submit', text: 'Download your verified sub-40KB image immediately.' },
+    ],
+    faqs: [
+      {
+        question: 'Why do portals specify an exact 40KB limit?',
+        answer: 'Several major recruitment examination boards (including railway and teacher eligibility tests) set 40 KB as the cutoff for candidate passport photos.'
+      },
+      {
+        question: 'Is my personal photo safe when compressing here?',
+        answer: 'Yes! 100% of the image compression takes place inside your browser. No files are ever sent across the network or stored on any server.'
+      }
+    ],
+    contentSections: [
+      {
+        title: 'Guaranteed 40KB Portal Compliance',
+        content: 'Avoid rejected forms with our exact 40KB compression engine. We preserve portrait skin tones and crisp edges so your photograph is readily accepted by automated form validators.'
+      }
+    ],
+    relatedPages: [
+      { title: 'Compress to 25 KB', href: '/compress/25kb' },
+      { title: 'Compress to 50 KB', href: '/compress/50kb' },
+      { title: 'Govt Exam Photo Resize', href: '/resize/exam-photo' }
     ]
   },
   '50kb': {

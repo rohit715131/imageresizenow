@@ -84,10 +84,12 @@ const pageData: ProgrammaticPageData = {
     },
   ],
   relatedPages: [
-    { title: "Convert Image to PDF", href: "/image-to-pdf" },
-    { title: "1080×1080 Square Preset", href: "/resize/1080x1080" },
-    { title: "1200×630 OG Share Preset", href: "/resize/1200x630" },
-    { title: "Compress to under 100KB", href: "/compress/100kb" },
+    { title: "1080×1080 Square (Instagram)", href: "/resize/1080x1080" },
+    { title: "1280×720 YouTube Thumbnail", href: "/resize/1280x720" },
+    { title: 'Passport Photo (2×2" / 600×600 px)', href: "/resize/passport-photo" },
+    { title: "Govt Exam Signature 140×60", href: "/resize/exam-signature" },
+    { title: "Guide: Best Social Media Image Sizes", href: "/guides/best-image-sizes-for-social-media" },
+    { title: "Compress to 100 KB", href: "/compress/100kb" },
   ],
 };
 

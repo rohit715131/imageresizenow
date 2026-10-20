@@ -79,18 +79,33 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/photo-to-pdf" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  Photo to PDF
+                </Link>
+              </li>
+              <li>
                 <Link href="/compress-pdf" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                   Compress PDF
                 </Link>
               </li>
               <li>
                 <Link href="/compress-pdf-to-100kb" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  Compress to 100 KB
+                  Compress PDF to 100 KB
                 </Link>
               </li>
               <li>
                 <Link href="/compress-pdf-to-200kb" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  Compress to 200 KB
+                  Compress PDF to 200 KB
+                </Link>
+              </li>
+              <li>
+                <Link href="/compress-pdf-to-500kb" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  Compress PDF to 500 KB
+                </Link>
+              </li>
+              <li>
+                <Link href="/reduce-pdf-size" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  Reduce PDF Size
                 </Link>
               </li>
             </ul>
@@ -124,12 +139,17 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/resize/passport-photo" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  Passport 2×2" Photo
+                  Passport Photo (2×2" / 600×600 px)
                 </Link>
               </li>
               <li>
                 <Link href="/resize/exam-photo" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                   Govt Exam 200×230
+                </Link>
+              </li>
+              <li>
+                <Link href="/resize/exam-signature" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  Exam Signature 140×60
                 </Link>
               </li>
             </ul>

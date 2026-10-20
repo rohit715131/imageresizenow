@@ -1,88 +1,93 @@
 import { MetadataRoute } from 'next';
-import { RESIZE_PAGES, COMPRESS_PAGES, CONVERT_PAGES, PRESET_PAGES } from '@/lib/programmatic-data';
+import { RESIZE_PAGES, COMPRESS_PAGES, CONVERT_PAGES } from '@/lib/programmatic-data';
 import { GUIDES } from '@/lib/guides-data';
 import { PDF_PAGES } from '@/features/pdf-tools/data';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://imageresizenow.com';
-  const now = new Date();
+
+  // Stable dates reflecting real content updates rather than build timestamps
+  const dateRecent = new Date('2026-10-21T00:00:00Z');
+  const dateCore = new Date('2026-10-20T00:00:00Z');
+  const datePdfLaunch = new Date('2026-10-19T00:00:00Z');
+  const dateInitialProgrammatic = new Date('2026-10-18T00:00:00Z');
 
   // Core static pages
   const staticRoutes: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}`,
-      lastModified: now,
+      lastModified: dateRecent,
       changeFrequency: 'daily',
       priority: 1.0,
     },
     {
       url: `${baseUrl}/resize`,
-      lastModified: now,
+      lastModified: dateCore,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/compress`,
-      lastModified: now,
+      lastModified: dateCore,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/convert`,
-      lastModified: now,
+      lastModified: dateCore,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/crop`,
-      lastModified: now,
+      lastModified: dateCore,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/guides`,
-      lastModified: now,
+      lastModified: dateRecent,
       changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/about`,
-      lastModified: now,
+      lastModified: dateCore,
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
       url: `${baseUrl}/privacy`,
-      lastModified: now,
+      lastModified: dateCore,
       changeFrequency: 'monthly',
       priority: 0.5,
     },
     {
       url: `${baseUrl}/terms`,
-      lastModified: now,
+      lastModified: dateCore,
       changeFrequency: 'monthly',
       priority: 0.5,
     },
     {
       url: `${baseUrl}/contact`,
-      lastModified: now,
+      lastModified: dateCore,
       changeFrequency: 'monthly',
       priority: 0.6,
     },
   ];
 
-  // Programmatic Resize pages
+  // Programmatic Resize pages (all unified under /resize/)
   const resizeRoutes: MetadataRoute.Sitemap = Object.keys(RESIZE_PAGES).map((slug) => ({
     url: `${baseUrl}/resize/${slug}`,
-    lastModified: now,
+    lastModified: slug === 'exam-signature' ? dateRecent : dateInitialProgrammatic,
     changeFrequency: 'weekly',
     priority: 0.85,
   }));
 
-  // Programmatic Compress pages
+  // Programmatic Compress pages (including 1kb, 5kb, 10kb, 25kb, 40kb)
   const compressRoutes: MetadataRoute.Sitemap = Object.keys(COMPRESS_PAGES).map((slug) => ({
     url: `${baseUrl}/compress/${slug}`,
-    lastModified: now,
+    lastModified: ['1kb', '5kb', '10kb', '25kb', '40kb'].includes(slug) ? dateRecent : dateInitialProgrammatic,
     changeFrequency: 'weekly',
     priority: 0.85,
   }));
@@ -90,31 +95,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Programmatic Convert pages
   const convertRoutes: MetadataRoute.Sitemap = Object.keys(CONVERT_PAGES).map((slug) => ({
     url: `${baseUrl}/convert/${slug}`,
-    lastModified: now,
+    lastModified: dateInitialProgrammatic,
     changeFrequency: 'weekly',
     priority: 0.85,
   }));
 
-  // Programmatic Preset pages
-  const presetRoutes: MetadataRoute.Sitemap = Object.keys(PRESET_PAGES).map((slug) => ({
-    url: `${baseUrl}/preset/${slug}`,
-    lastModified: now,
-    changeFrequency: 'weekly',
-    priority: 0.85,
-  }));
-
-  // Guides & Articles
-  const guideRoutes: MetadataRoute.Sitemap = Object.keys(GUIDES).map((slug) => ({
-    url: `${baseUrl}/guides/${slug}`,
-    lastModified: now,
+  // Guides & Articles (each uses its real publication date)
+  const guideRoutes: MetadataRoute.Sitemap = Object.values(GUIDES).map((guide) => ({
+    url: `${baseUrl}/guides/${guide.slug}`,
+    lastModified: new Date(guide.date),
     changeFrequency: 'monthly',
-    priority: 0.75,
+    priority: 0.8,
   }));
 
   // PDF Tools and Variant pages
   const pdfRoutes: MetadataRoute.Sitemap = Object.values(PDF_PAGES).map((page) => ({
     url: `${baseUrl}${page.route}`,
-    lastModified: now,
+    lastModified: datePdfLaunch,
     changeFrequency: 'weekly',
     priority: page.slug === 'image-to-pdf' || page.slug === 'compress-pdf' ? 0.95 : 0.85,
   }));
@@ -124,7 +121,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...resizeRoutes,
     ...compressRoutes,
     ...convertRoutes,
-    ...presetRoutes,
     ...guideRoutes,
     ...pdfRoutes,
   ];

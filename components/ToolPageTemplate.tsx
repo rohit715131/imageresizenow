@@ -215,20 +215,25 @@ export function ToolPageTemplate({
                     <button
                       type="button"
                       onClick={() => setExpandedFaq(isOpen ? null : idx)}
-                      className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 font-semibold text-sm sm:text-base text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                      aria-expanded={isOpen}
+                      className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 group"
                     >
-                      <span>{faq.question}</span>
+                      <h3 className="font-semibold text-sm sm:text-base text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                        {faq.question}
+                      </h3>
                       <ChevronDown
                         className={`w-4 h-4 text-slate-400 transition-transform duration-200 shrink-0 ${
                           isOpen ? 'rotate-180 text-blue-600' : ''
                         }`}
                       />
                     </button>
-                    {isOpen && (
-                      <div className="px-4 sm:px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/80">
-                        {faq.answer}
-                      </div>
-                    )}
+                    <div
+                      className={`${
+                        isOpen ? 'block' : 'hidden'
+                      } px-4 sm:px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/80`}
+                    >
+                      <p>{faq.answer}</p>
+                    </div>
                   </div>
                 );
               })}

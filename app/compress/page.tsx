@@ -74,10 +74,13 @@ const pageData: ProgrammaticPageData = {
     },
   ],
   relatedPages: [
+    { title: 'Compress to 20 KB', href: '/compress/20kb' },
+    { title: 'Compress to 50 KB', href: '/compress/50kb' },
+    { title: 'Compress to 100 KB', href: '/compress/100kb' },
+    { title: 'Compress to 200 KB', href: '/compress/200kb' },
+    { title: 'Compress to 1 MB', href: '/compress/1mb' },
+    { title: 'Guide: How to Reduce Image Size', href: '/guides/how-to-reduce-image-size-without-losing-quality' },
     { title: 'Compress PDF Online', href: '/compress-pdf' },
-    { title: 'Image to PDF Converter', href: '/image-to-pdf' },
-    { title: 'Compress to under 50KB', href: '/compress/50kb' },
-    { title: 'Compress to under 100KB', href: '/compress/100kb' },
   ],
 };
 

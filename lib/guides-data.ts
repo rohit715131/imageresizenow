@@ -128,5 +128,87 @@ export const GUIDES: Record<string, GuideArticle> = {
         answer: '1080 x 1350 pixels (4:5 portrait) generally achieves higher engagement because it fills more vertical screen real estate as users scroll down mobile feeds.'
       }
     ]
+  },
+  'how-to-convert-images-to-pdf': {
+    slug: 'how-to-convert-images-to-pdf',
+    title: 'How to Convert JPG, PNG & Photos to PDF Online Privately (2026 Guide)',
+    description: 'Complete guide to turning images into clean, printable PDF documents. Learn page sizing (A4 vs Letter), border margins, and why in-browser processing is safer for personal documents.',
+    date: 'October 21, 2026',
+    readTime: '6 min read',
+    category: 'PDF Guide',
+    author: 'Image Toolkit Engineering',
+    sections: [
+      {
+        heading: 'Why Convert Images to PDF Instead of Sharing Loose JPEGs?',
+        body: 'Digital photographs, receipts, identity documents, and scanned contracts are universally shared as PDF files rather than raw JPEG or PNG pictures. PDFs preserve page layout, lock dimensions across devices and operating systems, prevent unintended re-compression by messaging apps, and allow easy multi-page printing with standardized border margins.'
+      },
+      {
+        heading: 'Selecting the Right Standard Page Geometry: A4 vs. US Letter',
+        body: 'When generating a PDF from a digital photo, page geometry dictates how the document looks on paper and screen:\n• A4 (210 × 297 mm): The administrative standard used across Europe, Asia, Australia, and international organizations. Choose A4 for visa paperwork, academic submissions, and European business correspondence.\n• US Letter (8.5 × 11 inches): The official standard in the United States and Canada. Essential for IRS forms, US court filings, and domestic corporate documents.\n• Fit to Image: Matches the PDF page dimensions directly to your image aspect ratio with zero white borders. Perfect for digital art, posters, and certificates intended primarily for on-screen viewing.'
+      },
+      {
+        heading: 'Balancing Print Resolution with Document File Size',
+        body: 'Standard web images display at 72 or 96 DPI, while high-quality physical printing requires 300 DPI. When converting camera photos to PDF, our client-side engine embeds high-resolution raster streams without downsampling pixel data, ensuring fine print and watermarks remain completely legible.'
+      },
+      {
+        heading: 'True Privacy: Why In-Browser PDF Assembly Matters for ID Documents',
+        body: 'Converting driver\'s licenses, passport scans, tax returns, or banking receipts on traditional cloud conversion websites exposes your biometric and financial data to unknown third-party servers. Using client-side WebAssembly with pdf-lib ensures your files never travel across the internet—the PDF is compiled entirely inside your computer or phone\'s local memory.'
+      }
+    ],
+    faqs: [
+      {
+        question: 'Can I convert multiple formats like JPG, PNG, and WebP to PDF?',
+        answer: 'Yes! Our in-browser converter natively processes JPEG, PNG, and WebP pictures into standardized PDF documents.'
+      },
+      {
+        question: 'Are my personal documents uploaded to a remote server?',
+        answer: 'Never. All PDF construction runs 100% locally on your device using pdf-lib. No server logs, caches, or retains your files.'
+      },
+      {
+        question: 'How do I convert a photo to PDF on my iPhone or Android?',
+        answer: 'Simply open ImageResizeNow in Safari or Chrome, tap "Image to PDF", choose the photo from your camera roll, and tap "Convert to PDF" to save it directly to your device.'
+      }
+    ]
+  },
+  'how-to-compress-pdf-documents': {
+    slug: 'how-to-compress-pdf-documents',
+    title: 'How to Compress PDF Files Without Losing Text Quality (2026 Guide)',
+    description: 'Learn proven techniques to shrink heavy PDF documents down to 100 KB, 200 KB, or 500 KB for job portals and email attachments while preserving sharp, readable text.',
+    date: 'October 21, 2026',
+    readTime: '6 min read',
+    category: 'PDF Guide',
+    author: 'Image Toolkit Engineering',
+    sections: [
+      {
+        heading: 'Why PDF Files Become Excessively Large',
+        body: 'PDF files frequently balloon in size to 10MB, 20MB, or more due to embedded uncompressed high-resolution images, full-color scanner passes at 600 DPI, redundant font subsets, and vector artwork overhead. When uploading to university portals, government job applications, or court electronic filing systems, strict file limits (such as 100 KB, 200 KB, or 1 MB) can block your submission.'
+      },
+      {
+        heading: 'Understanding PDF Compression Techniques',
+        body: 'There are two primary approaches to reducing PDF size:\n• Native Stream Deflation: Strips metadata, compresses font tables, and recompresses embedded raster graphics without altering page structure.\n• Canvas Rasterization & Re-encoding: Renders each page to a high-DPI canvas buffer, re-encodes the visual output using optimized JPEG quantization, and rebuilds a lean single/multi-page PDF. This technique achieves dramatic 70% to 90% size reductions and flattens complex form fields into unified pages.'
+      },
+      {
+        heading: 'Hitting Exact Thresholds: 100 KB, 200 KB, and 500 KB',
+        body: 'Different submission gateways enforce specific weight caps:\n• Under 100 KB: Frequently mandated for digital signature sheets, certificates, and government candidate resumes.\n• Under 200 KB: The sweet spot for admission forms and scholarship applications.\n• Under 500 KB / 1 MB: Ideal for multi-page contracts, portfolios, and email attachments.\nOur client-side tool allows you to select these exact kilobyte targets or choose Low, Medium, or High compression presets.'
+      },
+      {
+        heading: 'Preserving Fine Print and Contract Signatures',
+        body: 'When compressing documents, fine typography (8pt to 10pt text) and ink signatures must remain sharp. Our rendering pipeline utilizes 150 DPI canvas rasterization with bicubic smoothing so letters stay distinct without muddy compression halos.'
+      }
+    ],
+    faqs: [
+      {
+        question: 'Will compressing my PDF make the text unreadable?',
+        answer: 'With Medium compression or target presets (such as 200 KB), text remains crisp and easily legible on screens and physical prints. If text becomes slightly soft, switch to the Low Compression preset.'
+      },
+      {
+        question: 'Can I compress password-protected PDF files?',
+        answer: 'For security reasons, password-protected PDFs must be unlocked by entering your password prior to in-browser compression.'
+      },
+      {
+        question: 'Does PDF compression run privately on my device?',
+        answer: 'Yes! All rendering and rebuilding happens using pdfjs-dist and pdf-lib in your local browser sandbox without uploading your files to any remote server.'
+      }
+    ]
   }
 };

@@ -63,17 +63,18 @@ export function Header() {
   const resizePresets = [
     { name: '1080×1080 Square (Instagram)', href: '/resize/1080x1080' },
     { name: '1200×630 Social Share', href: '/resize/1200x630' },
-    { name: '1280×720 YouTube Thumbnail', href: '/preset/youtube-thumbnail' },
-    { name: 'Passport Photo 600×600', href: '/resize/passport-photo' },
+    { name: '1280×720 YouTube Thumbnail', href: '/resize/1280x720' },
+    { name: 'Passport Photo (2×2" / 600×600 px)', href: '/resize/passport-photo' },
     { name: 'Govt Exam 200×230', href: '/resize/exam-photo' },
+    { name: 'Exam Signature 140×60', href: '/resize/exam-signature' },
   ];
 
   const compressPresets = [
-    { name: 'Compress to under 20 KB', href: '/compress/20kb' },
-    { name: 'Compress to under 50 KB', href: '/compress/50kb' },
-    { name: 'Compress to under 100 KB', href: '/compress/100kb' },
-    { name: 'Compress to under 200 KB', href: '/compress/200kb' },
-    { name: 'Compress to under 1 MB', href: '/compress/1mb' },
+    { name: 'Compress to 20 KB', href: '/compress/20kb' },
+    { name: 'Compress to 50 KB', href: '/compress/50kb' },
+    { name: 'Compress to 100 KB', href: '/compress/100kb' },
+    { name: 'Compress to 200 KB', href: '/compress/200kb' },
+    { name: 'Compress to 1 MB', href: '/compress/1mb' },
   ];
 
   const convertPresets = [
@@ -93,13 +94,14 @@ export function Header() {
     ],
     compressPdf: [
       { name: 'Compress PDF', href: '/compress-pdf' },
-      { name: 'Compress to 100 KB', href: '/compress-pdf-to-100kb' },
-      { name: 'Compress to 200 KB', href: '/compress-pdf-to-200kb' },
+      { name: 'Compress PDF to 100 KB', href: '/compress-pdf-to-100kb' },
+      { name: 'Compress PDF to 200 KB', href: '/compress-pdf-to-200kb' },
+      { name: 'Compress PDF to 500 KB', href: '/compress-pdf-to-500kb' },
       { name: 'Reduce PDF Size', href: '/reduce-pdf-size' },
     ],
   };
 
-  const isResizeActive = pathname === '/resize' || pathname.startsWith('/resize/') || pathname.startsWith('/preset/');
+  const isResizeActive = pathname === '/resize' || pathname.startsWith('/resize/');
   const isCompressActive = pathname === '/compress' || pathname.startsWith('/compress/');
   const isConvertActive = pathname === '/convert' || pathname.startsWith('/convert/');
   const isCropActive = pathname === '/crop';
@@ -503,7 +505,7 @@ export function Header() {
                 onClick={() => setMobileMenuOpen(false)}
                 className="py-1 text-slate-600 dark:text-slate-300 hover:text-blue-500"
               >
-                Passport Photo 2×2"
+                Passport Photo (2×2")
               </Link>
               <Link
                 href="/compress/20kb"
