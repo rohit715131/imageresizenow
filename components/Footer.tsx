@@ -196,6 +196,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/about" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  About Us
+                </Link>
+              </li>
+              <li>
                 <Link href="/privacy" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                   Privacy Policy
                 </Link>
@@ -209,6 +214,11 @@ export function Footer() {
                 <Link href="/contact" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                   Contact & Feedback
                 </Link>
+              </li>
+              <li>
+                <a href="/sitemap.xml" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  Sitemap (XML)
+                </a>
               </li>
             </ul>
           </div>

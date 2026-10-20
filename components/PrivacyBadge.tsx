@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, Lock, EyeOff } from 'lucide-react';
+import { ShieldCheck, Lock, HardDrive, Cpu } from 'lucide-react';
 
 export function PrivacyBadge({ className = '' }: { className?: string }) {
   return (
@@ -8,7 +8,7 @@ export function PrivacyBadge({ className = '' }: { className?: string }) {
     >
       <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
       <span className="font-bold">100% Private</span>
-      <span className="text-emerald-400 dark:text-emerald-600">•</span>
+      <span className="text-emerald-400 dark:text-emerald-600" aria-hidden="true">•</span>
       <span className="text-emerald-700 dark:text-emerald-300">
         <span className="inline sm:hidden">Zero Uploads</span>
         <span className="hidden sm:inline">Processed in browser, never uploaded</span>
@@ -26,23 +26,23 @@ export function PrivacyCard() {
         </div>
         <div className="flex-1 min-w-0">
           <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white leading-snug">
-            Zero Server Uploads. Your Privacy is 100% Guaranteed.
+            Zero Server Uploads. 100% In-Browser Local Processing.
           </h3>
           <p className="mt-1.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-            Unlike other online image converters that transfer your confidential documents, family pictures, and signatures to remote cloud servers, this toolkit runs WebAssembly and HTML5 Canvas algorithms entirely inside your browser sandbox. Your files never leave your device.
+            Unlike cloud-based conversion websites that upload your personal photos, ID documents, and signatures to remote servers, ImageResizeNow executes all processing entirely inside your browser memory using HTML5 Canvas and WebAssembly. Your files never leave your device. Third-party ad partners may use standard web cookies to deliver relevant ads, but they never have access to your image data.
           </p>
           <div className="mt-3.5 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-medium text-emerald-700 dark:text-emerald-400">
             <span className="inline-flex items-center gap-1.5 whitespace-nowrap">
-              <EyeOff className="w-3.5 h-3.5 shrink-0" />
-              <span>No tracking cookies</span>
+              <Cpu className="w-3.5 h-3.5 shrink-0" />
+              <span>Runs 100% client-side</span>
+            </span>
+            <span className="inline-flex items-center gap-1.5 whitespace-nowrap">
+              <HardDrive className="w-3.5 h-3.5 shrink-0" />
+              <span>Zero server file storage</span>
             </span>
             <span className="inline-flex items-center gap-1.5 whitespace-nowrap">
               <ShieldCheck className="w-3.5 h-3.5 shrink-0" />
-              <span>No file storage</span>
-            </span>
-            <span className="inline-flex items-center gap-1.5 whitespace-nowrap">
-              <Lock className="w-3.5 h-3.5 shrink-0" />
-              <span>Offline capable</span>
+              <span>Files remain on your device</span>
             </span>
           </div>
         </div>

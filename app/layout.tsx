@@ -6,65 +6,30 @@ import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://imageresizenow.com"),
+  alternates: {
+    canonical: "https://imageresizenow.com",
+  },
   title: {
-    default:
-      "Free Online Image Toolkit - Resize, Compress, Convert, Crop (100% Private)",
+    default: "Resize, Compress & Convert Images Online | ImageResizeNow",
     template: "%s | ImageResizeNow",
   },
   description:
-    "Free client-side image editor to resize, compress, convert, and crop images directly in your browser. No sign-up, no file size limits, 100% private with zero server uploads.",
-  keywords: [
-    "kb resize image",
-    "image resizer",
-    "image compressor",
-    "image converter",
-    "image cropper",
-    "image editor",
-    "image processing",
-    "client-side image processing",
-    "in-browser image processing",
-    "image resize in kb",
-    "resize image in kb",
-    "resize image to 40kb",
-    "jpg compress",
-    "png to jpeg converter",
-    "compress image to 25kb",
-    "image compressor to 50kb",
-    "image compressor to 20kb",
-    "image compressor to 10kb",
-    "image compressor to 5kb",
-    "image compressor to 1kb",
-    "image resizer to 50kb",
-    "image resizer to 20kb",
-    "compress image online",
-    "convert png to webp",
-    "heic to jpg converter",
-    "passport size photo maker",
-    "exam form photo resize",
-    "free online image toolkit",
-  ],
+    "Resize, compress, convert, and crop images in your browser for free. 100% private with client-side processing, no file limits, and zero server uploads.",
   authors: [{ name: "ImageResizeNow Team" }],
   creator: "ImageResizeNow",
   publisher: "ImageResizeNow",
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
   },
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://imageresizenow.com",
     siteName: "ImageResizeNow",
-    title: "Free Online Image Toolkit - 100% Private In-Browser Image Tools",
+    title: "Resize, Compress & Convert Images Online | ImageResizeNow",
     description:
-      "Fast, free and 100% private. Resize, compress, convert, and crop images locally in your browser. Zero server uploads.",
+      "Resize, compress, convert, and crop images in your browser for free. 100% private with client-side processing, no file limits, and zero server uploads.",
     images: [
       {
         url: "/og-image.png",
@@ -76,9 +41,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free Online Image Toolkit - 100% Private",
+    title: "Resize, Compress & Convert Images Online | ImageResizeNow",
     description:
-      "Fast, free and 100% private. Resize, compress, convert, and crop images locally in your browser. Zero server uploads.",
+      "Resize, compress, convert, and crop images in your browser for free. 100% private with client-side processing, no file limits, and zero server uploads.",
     images: ["/og-image.png"],
   },
   icons: {

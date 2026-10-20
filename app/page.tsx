@@ -30,8 +30,8 @@ import {
   ChevronDown,
   ArrowRight,
   Sliders,
-  Check,
-  X as XIcon,
+  Cpu,
+  HardDrive,
 } from 'lucide-react';
 
 export default function HomePage() {
@@ -44,27 +44,42 @@ export default function HomePage() {
     {
       question: 'How is this image toolkit 100% private?',
       answer:
-        'Unlike other image tools that transmit your files to cloud servers where they are stored or processed remotely, our toolkit executes all logic locally inside your browser using HTML5 Canvas and WebAssembly. Your photos, documents, and signatures never leave your computer or phone.',
+        'Unlike cloud image converters that upload your photos to remote servers, our toolkit executes all logic locally inside your browser memory using HTML5 Canvas and WebAssembly. Your photos, sensitive documents, and signatures never travel across the internet or get stored on any disk.',
     },
     {
-      question: 'Is there any file size limit or daily usage cap?',
+      question: 'Why do you show ads if the site is private? Do ads track my images?',
       answer:
-        'No! Because processing happens on your local device hardware, there are no artificial file upload limits, no wait queues, and no premium restrictions.',
+        'We show standard display ads to keep all tools 100% free with no account or subscription requirements. Ad networks use standard web cookies to deliver and measure ads, but they run in an isolated web environment and never have access to, cannot view, and cannot intercept any images or documents you process.',
     },
     {
-      question: 'Does this toolkit add any watermarks to my downloaded images?',
+      question: 'How do I compress an image to an exact size like 20 KB or 50 KB?',
       answer:
-        'Never. All processed images are completely watermark-free, full quality, and ready for commercial or personal use.',
+        'Select the "Compress" tab, switch to "Target File Size Mode", and select 20 KB, 50 KB, 100 KB, or enter any custom target. Our iterative binary-search algorithm adjusts image quality and dimensions to guarantee the output file stays strictly under your target while retaining maximum visual clarity.',
     },
     {
-      question: 'How do I compress an image to an exact size like 20KB or 50KB?',
+      question: 'Which image and document formats are supported?',
       answer:
-        'Select the "Compress" tab, choose "Target File Size Mode", and select 20KB, 50KB, or enter any custom KB target. Our iterative binary-search algorithm calculates the exact compression parameters to guarantee your file is under the limit without becoming illegible.',
+        'You can import and process JPG, PNG, WebP, AVIF, HEIC (Apple iPhone photos), GIF, and BMP images. You can also convert photos to PDF or compress multi-page PDF documents.',
     },
     {
-      question: 'Which image formats are supported?',
+      question: 'Can I use these image tools offline or on slow internet connections?',
       answer:
-        'You can import and process JPG, PNG, WebP, AVIF, HEIC (iPhone photos), BMP, and GIF images.',
+        'Yes. Once the page has loaded in your browser, all image processing occurs using your local device CPU and GPU. You do not need to wait for heavy multi-megabyte uploads, making it fast even on spotty mobile connections or offline.',
+    },
+    {
+      question: 'Is there any file size limit, watermark, or daily quota?',
+      answer:
+        'No. Because processing is performed using your local device memory rather than expensive server clusters, there are no artificial file size limits, no daily conversion caps, and no watermarks added to your downloaded images.',
+    },
+    {
+      question: 'How does client-side format conversion differ from cloud converters?',
+      answer:
+        'Traditional cloud converters send your files to remote servers where they enter a processing queue. Client-side conversion decodes the image directly into browser canvas memory and re-encodes it into your chosen format (such as WebP or PNG) in milliseconds without any network latency.',
+    },
+    {
+      question: 'How do I convert iPhone HEIC photos to JPG or PNG?',
+      answer:
+        'Select the "Convert" tab or navigate to /convert/heic-to-jpg, upload your .heic or .heif file, and select JPG or PNG as the target format. The tool decodes the container and produces a standard image compatible with Windows, Android, and web portals.',
     },
   ];
 
@@ -72,14 +87,14 @@ export default function HomePage() {
     <div className="w-full min-h-screen bg-slate-50/50 dark:bg-slate-950 transition-colors">
       <JsonLd
         type="all"
-        name="ImageResizeNow - Free Online Image Toolkit"
+        name="Resize, Compress, and Convert Images Online - ImageResizeNow"
         description="Free, private client-side image editor to resize, compress, convert, and crop images directly in your browser. Zero server uploads."
         url="https://imageresizenow.com"
         faqs={homeFaqs}
         steps={[
-          { name: 'Upload Image', text: 'Select, drag and drop, or paste (Ctrl+V) an image.' },
+          { name: 'Upload Image', text: 'Select, drag and drop, or paste an image from your clipboard.' },
           { name: 'Choose Action', text: 'Select Resize, Compress, Convert, or Crop.' },
-          { name: 'Adjust Options', text: 'Customize dimensions, target file size, or format.' },
+          { name: 'Adjust Options', text: 'Customize dimensions, target file size (e.g. 20 KB, 50 KB), or format.' },
           { name: 'Download', text: 'Instantly download your watermark-free result.' },
         ]}
       />
@@ -88,13 +103,13 @@ export default function HomePage() {
       <section className="pt-8 sm:pt-14 pb-8 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="flex flex-wrap items-center justify-center gap-2 mb-4">
           <span className="px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800">
-            ⚡ WebAssembly & Canvas Engine
+            <span aria-hidden="true">⚡</span> WebAssembly &amp; Canvas Engine
           </span>
           <PrivacyBadge />
         </div>
 
         <h1 className="text-3xl sm:text-5xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
-          Free Online Image Toolkit
+          Resize, Compress, and Convert Images Online
         </h1>
         <p className="mt-3 text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
           Resize, compress, convert, and crop your photos in seconds. Processed entirely inside your browser —{' '}
@@ -105,6 +120,10 @@ export default function HomePage() {
 
         {/* Above-the-fold Interactive Studio */}
         <div className="mt-8">
+          <h2 className="text-lg sm:text-xl font-bold text-slate-800 dark:text-slate-200 mb-4">
+            In-Browser Image Studio
+          </h2>
+
           {/* Tool Selector Tabs */}
           <div className="flex rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-1.5 shadow-sm max-w-xl mx-auto mb-6">
             {[
@@ -151,7 +170,7 @@ export default function HomePage() {
                   setProcessedResult(null);
                 }}
                 title={`Upload Image to ${activeTab.charAt(0).toUpperCase() + activeTab.slice(1)}`}
-                subtitle="Select, drop your file, or press Ctrl+V to paste from clipboard"
+                subtitle="Select, drop your file, or paste from clipboard"
               />
 
               {imageState && (
@@ -175,17 +194,17 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CLS-Safe Ad Slot */}
+      {/* Discreet Advertisement Slot */}
       <AdBanner slot="middle" />
 
-      {/* Why Choose Us Feature Grid */}
+      {/* Architectural Advantages Feature Grid */}
       <section className="py-12 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
-            Built for Maximum Privacy & Lightning Speed
+            Built for Maximum Privacy &amp; Lightning Speed
           </h2>
           <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">
-            Why millions of creators, developers, and students switch from legacy upload tools.
+            Why users prefer client-side processing over cloud upload tools.
           </p>
         </div>
 
@@ -210,7 +229,7 @@ export default function HomePage() {
               Zero Upload Waiting Time
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-              Skip slow internet uploads! Processing runs on your local GPU/CPU hardware via HTML5 Canvas, completing in milliseconds rather than minutes.
+              Skip slow internet uploads. Processing runs on your local GPU/CPU hardware via HTML5 Canvas, completing in milliseconds rather than minutes.
             </p>
           </div>
 
@@ -219,23 +238,23 @@ export default function HomePage() {
               <Sliders className="w-6 h-6" />
             </div>
             <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2">
-              Target File Size Guarantee
+              Target File Size Precision
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-              Need a photo under 20KB or 50KB for a government portal? Our binary search compression algorithm hits exact kilobyte limits automatically.
+              Need a photo under 20 KB or 50 KB for an application portal? Our binary-search compression algorithm hits exact kilobyte limits automatically.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Competitor Analysis Matrix (How We Compare) */}
+      {/* Architectural Comparison Matrix */}
       <section className="py-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="p-8 sm:p-12 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm">
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            How We Compare
+            Client-Side Processing vs. Cloud Converters
           </h2>
           <p className="mt-2 text-sm sm:text-base text-slate-500 dark:text-slate-400">
-            Privacy-first image tools that run entirely in your browser.
+            How in-browser HTML5 Canvas algorithms compare with traditional upload-based services.
           </p>
 
           <div className="mt-8 overflow-x-auto">
@@ -243,35 +262,35 @@ export default function HomePage() {
               <thead>
                 <tr className="border-b border-slate-100 dark:border-slate-800 text-[11px] font-bold tracking-wider uppercase text-slate-400 dark:text-slate-500">
                   <th className="pb-4 font-bold w-1/3">FEATURE</th>
-                  <th className="pb-4 font-bold text-blue-600 dark:text-blue-400 w-1/3">IMAGERESIZENOW</th>
-                  <th className="pb-4 font-bold text-slate-400 dark:text-slate-500 w-1/3">OTHER COMPETITORS</th>
+                  <th className="pb-4 font-bold text-blue-600 dark:text-blue-400 w-1/3">IMAGERESIZENOW (CLIENT-SIDE)</th>
+                  <th className="pb-4 font-bold text-slate-400 dark:text-slate-500 w-1/3">SERVER-BASED UPLOAD SERVICES</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100 dark:divide-slate-800/60">
                 <tr>
-                  <td className="py-4 font-bold text-slate-900 dark:text-white">Processing</td>
-                  <td className="py-4 font-bold text-emerald-600 dark:text-emerald-400">100% in your browser</td>
-                  <td className="py-4 text-slate-500 dark:text-slate-400">Uploaded to servers</td>
+                  <td className="py-4 font-bold text-slate-900 dark:text-white">File Location</td>
+                  <td className="py-4 font-bold text-emerald-600 dark:text-emerald-400">Never leaves your device RAM</td>
+                  <td className="py-4 text-slate-500 dark:text-slate-400">Transferred across internet to remote server</td>
                 </tr>
                 <tr>
-                  <td className="py-4 font-bold text-slate-900 dark:text-white">Privacy</td>
-                  <td className="py-4 font-bold text-emerald-600 dark:text-emerald-400">Never leaves your device</td>
-                  <td className="py-4 text-slate-500 dark:text-slate-400">Kept on their servers</td>
+                  <td className="py-4 font-bold text-slate-900 dark:text-white">Execution Engine</td>
+                  <td className="py-4 font-bold text-emerald-600 dark:text-emerald-400">Local HTML5 Canvas &amp; WebAssembly</td>
+                  <td className="py-4 text-slate-500 dark:text-slate-400">Remote backend server queues</td>
                 </tr>
                 <tr>
-                  <td className="py-4 font-bold text-slate-900 dark:text-white">Modern Formats</td>
-                  <td className="py-4 font-bold text-emerald-600 dark:text-emerald-400">WebP, AVIF &amp; HEIC</td>
-                  <td className="py-4 text-slate-500 dark:text-slate-400">Often limited</td>
+                  <td className="py-4 font-bold text-slate-900 dark:text-white">Supported Formats</td>
+                  <td className="py-4 font-bold text-emerald-600 dark:text-emerald-400">JPG, PNG, WebP, AVIF, HEIC, GIF</td>
+                  <td className="py-4 text-slate-500 dark:text-slate-400">Usually limited to JPG and PNG</td>
                 </tr>
                 <tr>
-                  <td className="py-4 font-bold text-slate-900 dark:text-white">Target File Size</td>
-                  <td className="py-4 font-bold text-emerald-600 dark:text-emerald-400">Exact: 20KB, 50KB, 100KB</td>
-                  <td className="py-4 text-slate-500 dark:text-slate-400">Quality % slider only</td>
+                  <td className="py-4 font-bold text-slate-900 dark:text-white">Target Kilobyte Mode</td>
+                  <td className="py-4 font-bold text-emerald-600 dark:text-emerald-400">Exact limits (20 KB, 50 KB, 100 KB)</td>
+                  <td className="py-4 text-slate-500 dark:text-slate-400">Quality percentage slider only</td>
                 </tr>
                 <tr>
-                  <td className="py-4 font-bold text-slate-900 dark:text-white">Sign-up &amp; Upsells</td>
-                  <td className="py-4 font-bold text-emerald-600 dark:text-emerald-400">No account, no watermark</td>
-                  <td className="py-4 text-slate-500 dark:text-slate-400">Sign-ups, premium pushes</td>
+                  <td className="py-4 font-bold text-slate-900 dark:text-white">Usage &amp; Accounts</td>
+                  <td className="py-4 font-bold text-emerald-600 dark:text-emerald-400">No login, no watermark, unlimited</td>
+                  <td className="py-4 text-slate-500 dark:text-slate-400">Registration or paid plans often required</td>
                 </tr>
               </tbody>
             </table>
@@ -388,7 +407,7 @@ export default function HomePage() {
           {/* Card 4 */}
           <div className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-2.5">
             <h3 className="text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
-              Official Exams & ID
+              Official Exams &amp; ID
             </h3>
             <ul className="space-y-1.5 text-xs text-slate-600 dark:text-slate-300 font-medium">
               <li>
@@ -516,14 +535,14 @@ export default function HomePage() {
                   <FileArchive className="w-5 h-5" />
                 </div>
                 <h3 className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                  Compress to 100KB
+                  Compress PDF to 100 KB
                 </h3>
                 <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                  Target strict 100KB and 200KB ceilings for job and admission portals.
+                  Target strict 100 KB and 200 KB ceilings for job and admission portals.
                 </p>
               </div>
               <div className="mt-4 flex items-center gap-1 text-xs font-semibold text-emerald-600 dark:text-emerald-400">
-                <span>PDF to 100KB</span>
+                <span>Compress PDF to 100 KB</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </div>
             </Link>
@@ -531,9 +550,109 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Privacy Guarantee Card */}
+      {/* Privacy Architecture Card */}
       <section className="py-6 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <PrivacyCard />
+      </section>
+
+      {/* Educational Content & Guides Section */}
+      <section className="py-12 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        {/* Article 1: How In-Browser Processing Works */}
+        <div className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
+          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">
+            <Cpu className="w-4 h-4" />
+            <span>Behind the Technology</span>
+          </div>
+          <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
+            How Client-Side In-Browser Image Processing Works
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            Most web-based image manipulation tools act as simple relays: they take your file, upload it over the internet to a backend cloud server, run command-line tools like ImageMagick or Sharp, and then send a download link back. While effective, this process introduces privacy vulnerabilities, consumes internet bandwidth, and introduces upload queue latency.
+          </p>
+          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            ImageResizeNow takes a modern, privacy-first approach. By leveraging the browser&apos;s native HTML5 Canvas API and WebAssembly, all image decoding, bicubic interpolation downscaling, quantization, and compression happen directly within your browser&apos;s sandboxed memory space. Because your file is never transmitted across the network, processing takes only a fraction of a second and your confidential photos remain completely private on your device.
+          </p>
+        </div>
+
+        {/* Article 2: How to choose target size */}
+        <div className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+            <Sliders className="w-4 h-4" />
+            <span>Target Size Optimization</span>
+          </div>
+          <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
+            How to Choose the Right Target File Size (20 KB, 50 KB, 100 KB)
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            Online portals for government examinations (such as SSC, UPSC, and state PSCs), job applications, and visa forms often enforce rigid file size thresholds. Uploading an image even 1 KB above the limit triggers an immediate validation failure:
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-1">
+            <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
+              <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-1">Under 20 KB</h3>
+              <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                Mandated for digital signatures, thumbprints, and small portal thumbnails where only minimal dimensions (e.g. 140×60 px) are needed.
+              </p>
+            </div>
+            <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
+              <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-1">Under 50 KB</h3>
+              <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                The standard ceiling for passport photographs, admit cards, and student ID cards. Balances facial clarity with low bandwidth usage.
+              </p>
+            </div>
+            <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
+              <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-1">Under 100 KB / 200 KB</h3>
+              <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                Recommended for document scans, certificates, resumes, and web illustrations where sharp text readability is essential.
+              </p>
+            </div>
+          </div>
+          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            Our Target File Size mode uses a binary-search algorithm over JPEG/WebP quantization tables to guarantee your file meets these strict portal limits without multiple manual export attempts.
+          </p>
+        </div>
+
+        {/* Article 3: Format comparison */}
+        <div className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-purple-600 dark:text-purple-400">
+            <RefreshCw className="w-4 h-4" />
+            <span>Format Comparison</span>
+          </div>
+          <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
+            Which Image Format Should You Use? (JPG vs PNG vs WebP vs AVIF vs GIF)
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 pt-1">
+            <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
+              <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-1">JPEG / JPG</h3>
+              <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                Universal compatibility across every device and browser. Best choice for photographs, official forms, and social media.
+              </p>
+            </div>
+            <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
+              <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-1">PNG</h3>
+              <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                Lossless raster format supporting transparent alpha channels. Ideal for brand logos, icons, and screenshots with crisp text.
+              </p>
+            </div>
+            <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
+              <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-1">WebP</h3>
+              <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                Google&apos;s modern web format providing 25–35% smaller file sizes than JPG with full transparency support. Perfect for web design.
+              </p>
+            </div>
+            <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
+              <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-1">AVIF</h3>
+              <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                Next-generation open video consortium codec delivering extreme compression efficiency for modern browsers.
+              </p>
+            </div>
+            <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
+              <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-1">GIF</h3>
+              <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                Legacy bitmap format. Use our converter to resize static frames or convert old GIFs to modern WebP or PNG.
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* FAQs Section */}
@@ -556,20 +675,25 @@ export default function HomePage() {
                 <button
                   type="button"
                   onClick={() => setFaqOpen(isOpen ? null : idx)}
-                  className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 font-semibold text-sm sm:text-base text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  aria-expanded={isOpen}
+                  className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 group"
                 >
-                  <span>{faq.question}</span>
+                  <h3 className="font-semibold text-sm sm:text-base text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                    {faq.question}
+                  </h3>
                   <ChevronDown
                     className={`w-4 h-4 text-slate-400 transition-transform duration-200 shrink-0 ${
                       isOpen ? 'rotate-180 text-blue-600' : ''
                     }`}
                   />
                 </button>
-                {isOpen && (
-                  <div className="px-4 sm:px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800">
-                    {faq.answer}
-                  </div>
-                )}
+                <div
+                  className={`${
+                    isOpen ? 'block' : 'hidden'
+                  } px-4 sm:px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800`}
+                >
+                  <p>{faq.answer}</p>
+                </div>
               </div>
             );
           })}

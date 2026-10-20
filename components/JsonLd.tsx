@@ -22,11 +22,11 @@ export function JsonLd({
 }: JsonLdProps) {
   const schemas: object[] = [];
 
-  // SoftwareApplication Schema
+  // SoftwareApplication / WebApplication Schema
   if (type === 'software' || type === 'all') {
     schemas.push({
       '@context': 'https://schema.org',
-      '@type': 'SoftwareApplication',
+      '@type': ['SoftwareApplication', 'WebApplication'],
       name: name,
       operatingSystem: 'All',
       applicationCategory: 'MultimediaApplication',
@@ -39,7 +39,7 @@ export function JsonLd({
       url: url,
       featureList: [
         'Client-side image resizing by pixels, percent, and social presets',
-        'Intelligent image compression with target file size mode (20KB, 50KB, 100KB)',
+        'Intelligent image compression with target file size mode (20 KB, 50 KB, 100 KB)',
         'Next-gen image conversion for WebP, AVIF, PNG, JPG, and HEIC',
         'Visual aspect ratio crop and rotation',
         '100% private in-browser processing with zero server uploads',

@@ -55,23 +55,35 @@ export default function PrivacyPage() {
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
-                <span><strong>No Tracking Cookies:</strong> We do not use third-party invasive profiling cookies.</span>
+                <span><strong>No Image Retention or Server Logs:</strong> Because all pixel operations run locally via JavaScript and Canvas, we have no capability to see, log, or reconstruct your uploaded files.</span>
               </li>
             </ul>
           </section>
 
           <section className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-3">
             <h2 className="text-lg font-bold text-slate-900 dark:text-white">
-              2. Anonymous Aggregated Analytics
+              2. Third-Party Advertising & Cookies
             </h2>
             <p>
-              We monitor aggregate website traffic using privacy-friendly analytics and Google Search Console to understand which tools are most helpful. These metrics record anonymous query counts without collecting IP addresses, personal identifiers, or file contents.
+              To keep ImageResizeNow completely free without paywalls or subscriptions, we display advertisements provided by third-party ad networks (such as Google AdSense). These advertising partners may use standard web cookies, web beacons, and similar technologies to measure ad performance and serve relevant ads based on prior visits to this or other websites.
+            </p>
+            <p>
+              <strong>Important Separation:</strong> Third-party ad networks only interact with standard web browser cookies. They never have access to, cannot see, and cannot intercept any images, photos, or documents you process with our tools.
             </p>
           </section>
 
           <section className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-3">
             <h2 className="text-lg font-bold text-slate-900 dark:text-white">
-              3. Local Storage Preferences
+              3. Anonymous Aggregated Analytics
+            </h2>
+            <p>
+              We monitor aggregate website traffic using privacy-focused analytics and Google Search Console to understand which tools are most helpful. These metrics record anonymous query counts without collecting IP addresses, personal identifiers, or file contents.
+            </p>
+          </section>
+
+          <section className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-3">
+            <h2 className="text-lg font-bold text-slate-900 dark:text-white">
+              4. Local Storage Preferences
             </h2>
             <p>
               We use your browser's local storage solely to remember your UI preference (Light mode vs. Dark mode). This preference stays on your computer and is never transmitted to us.
@@ -80,7 +92,7 @@ export default function PrivacyPage() {
 
           <section className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-3">
             <h2 className="text-lg font-bold text-slate-900 dark:text-white">
-              4. Contact Inquiries
+              5. Contact Inquiries
             </h2>
             <p>
               If you voluntarily submit a message or bug report through our contact form, we collect your name, email, and message solely to respond to your inquiry. We never sell or share contact details with advertisers.
