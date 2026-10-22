@@ -50,17 +50,35 @@ export function ResizeTool({
     }
   }, [defaultWidth, defaultHeight, imageState.aspectRatio]);
 
-  const handleWidthChange = (val: number) => {
-    setWidth(val);
+  const handleWidthChange = (valStr: string) => {
+    if (valStr === '') {
+      setWidth(0);
+      if (maintainRatio) {
+        setHeight(0);
+      }
+      return;
+    }
+    const parsed = parseInt(valStr, 10);
+    const num = isNaN(parsed) ? 0 : Math.min(10000, Math.max(0, parsed));
+    setWidth(num);
     if (maintainRatio && imageState.aspectRatio) {
-      setHeight(Math.max(1, Math.round(val / imageState.aspectRatio)));
+      setHeight(num === 0 ? 0 : Math.max(1, Math.round(num / imageState.aspectRatio)));
     }
   };
 
-  const handleHeightChange = (val: number) => {
-    setHeight(val);
+  const handleHeightChange = (valStr: string) => {
+    if (valStr === '') {
+      setHeight(0);
+      if (maintainRatio) {
+        setWidth(0);
+      }
+      return;
+    }
+    const parsed = parseInt(valStr, 10);
+    const num = isNaN(parsed) ? 0 : Math.min(10000, Math.max(0, parsed));
+    setHeight(num);
     if (maintainRatio && imageState.aspectRatio) {
-      setWidth(Math.max(1, Math.round(val * imageState.aspectRatio)));
+      setWidth(num === 0 ? 0 : Math.max(1, Math.round(num * imageState.aspectRatio)));
     }
   };
 
@@ -72,6 +90,10 @@ export function ResizeTool({
   };
 
   const executeResize = async () => {
+    if (mode === 'pixels' && (width <= 0 || height <= 0)) {
+      alert('Please enter valid width and height dimensions greater than 0.');
+      return;
+    }
     setIsProcessing(true);
     try {
       const img = new Image();
@@ -150,10 +172,11 @@ export function ResizeTool({
               </label>
               <input
                 type="number"
-                min="1"
+                min="0"
                 max="10000"
                 value={width}
-                onChange={(e) => handleWidthChange(parseInt(e.target.value) || 1)}
+                onFocus={(e) => e.target.select()}
+                onChange={(e) => handleWidthChange(e.target.value)}
                 className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white font-mono text-sm focus:ring-2 focus:ring-blue-500 outline-none"
               />
             </div>
@@ -163,10 +186,11 @@ export function ResizeTool({
               </label>
               <input
                 type="number"
-                min="1"
+                min="0"
                 max="10000"
                 value={height}
-                onChange={(e) => handleHeightChange(parseInt(e.target.value) || 1)}
+                onFocus={(e) => e.target.select()}
+                onChange={(e) => handleHeightChange(e.target.value)}
                 className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white font-mono text-sm focus:ring-2 focus:ring-blue-500 outline-none"
               />
             </div>
@@ -343,7 +367,7 @@ export function ResizeTool({
       {/* Execute Button */}
       <button
         onClick={executeResize}
-        disabled={isProcessing}
+        disabled={isProcessing || (mode === 'pixels' && (width <= 0 || height <= 0))}
         type="button"
         className="w-full py-4 rounded-xl font-bold text-white bg-blue-600 hover:bg-blue-700 active:bg-blue-800 shadow-lg shadow-blue-600/30 transition-all flex items-center justify-center gap-2 text-base disabled:opacity-50"
       >

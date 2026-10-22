@@ -47,6 +47,10 @@ export function CompressPdfTool({
   const targetPresets = [100, 200, 500, 1000];
 
   const handleCompress = async () => {
+    if (preset === 'target' && targetKb <= 0) {
+      setErrorMsg('Please enter a target size greater than 0 KB.');
+      return;
+    }
     setIsProcessing(true);
     setProgressPercent(0);
     setProgressStatus('Starting PDF compression...');
@@ -197,14 +201,23 @@ export function CompressPdfTool({
           <div className="flex items-center gap-3">
             <input
               type="number"
-              min="20"
+              min="0"
               max="20000"
               value={targetKb}
-              onChange={(e) => setTargetKb(Math.max(10, parseInt(e.target.value) || 100))}
-              className="w-32 px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm font-bold text-slate-900 dark:text-white"
+              onFocus={(e) => e.target.select()}
+              onChange={(e) => {
+                const raw = e.target.value;
+                if (raw === '') {
+                  setTargetKb(0);
+                  return;
+                }
+                const parsed = parseInt(raw, 10);
+                setTargetKb(isNaN(parsed) ? 0 : Math.max(0, Math.min(20000, parsed)));
+              }}
+              className="w-32 px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm font-bold text-slate-900 dark:text-white font-mono"
             />
             <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">
-              Target Kilobytes (approx. budget: ~{Math.round(targetKb / pdfState.pageCount)} KB per page)
+              Target Kilobytes (approx. budget: ~{targetKb > 0 ? Math.round(targetKb / pdfState.pageCount) : 0} KB per page)
             </span>
           </div>
         </div>
@@ -265,7 +278,7 @@ export function CompressPdfTool({
       {/* Action button */}
       <button
         type="button"
-        disabled={isProcessing}
+        disabled={isProcessing || (preset === 'target' && targetKb <= 0)}
         onClick={handleCompress}
         className="w-full mt-2 py-4 px-6 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 hover:from-blue-700 hover:to-indigo-800 text-white font-extrabold text-base shadow-xl shadow-blue-500/20 flex items-center justify-center gap-2 transition-all active:scale-[0.99] disabled:opacity-50"
       >
