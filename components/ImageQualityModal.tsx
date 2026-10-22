@@ -38,7 +38,7 @@ export function ImageQualityModal({
   onAdjustAgain,
   downloaded,
 }: ImageQualityModalProps) {
-  const [viewMode, setViewMode] = useState<ViewMode>('split');
+  const [viewMode, setViewMode] = useState<ViewMode>('side-by-side');
   const [splitPos, setSplitPos] = useState<number>(50); // percentage 0 - 100
   const [isDraggingSplit, setIsDraggingSplit] = useState<boolean>(false);
   const [zoomLevel, setZoomLevel] = useState<number>(1); // 1 = fit, 1.5, 2, etc.
@@ -131,19 +131,6 @@ export function ImageQualityModal({
           <div className="flex items-center rounded-xl bg-slate-800 p-1 text-xs font-semibold border border-slate-700">
             <button
               type="button"
-              onClick={() => setViewMode('split')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
-                viewMode === 'split'
-                  ? 'bg-blue-600 text-white shadow-sm'
-                  : 'text-slate-400 hover:text-white'
-              }`}
-              title="Split comparison slider"
-            >
-              <SplitSquareVertical className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">Split Slider</span>
-            </button>
-            <button
-              type="button"
               onClick={() => setViewMode('side-by-side')}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
                 viewMode === 'side-by-side'
@@ -166,7 +153,20 @@ export function ImageQualityModal({
               title="Inspect result with zoom"
             >
               <Maximize2 className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">Zoom & Pan</span>
+              <span className="hidden sm:inline">Zoom &amp; Pan</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => setViewMode('split')}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
+                viewMode === 'split'
+                  ? 'bg-blue-600 text-white shadow-sm'
+                  : 'text-slate-400 hover:text-white'
+              }`}
+              title="Split comparison slider"
+            >
+              <SplitSquareVertical className="w-3.5 h-3.5" />
+              <span className="hidden sm:inline">Split Slider</span>
             </button>
           </div>
 
@@ -183,61 +183,7 @@ export function ImageQualityModal({
 
         {/* Viewport Area */}
         <div className="relative flex-1 w-full overflow-hidden bg-slate-950 flex items-center justify-center p-3 select-none">
-          {/* 1. SPLIT COMPARISON SLIDER MODE */}
-          {viewMode === 'split' && (
-            <div
-              ref={splitContainerRef}
-              onPointerDown={handleSplitPointerDown}
-              onPointerMove={handleSplitPointerMove}
-              onPointerUp={handleSplitPointerUp}
-              className="relative w-full h-full max-w-4xl max-h-[580px] rounded-2xl overflow-hidden border border-slate-800 flex items-center justify-center cursor-ew-resize touch-none select-none"
-            >
-              {/* Processed Result (Background image) */}
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={result.url}
-                alt="Processed Result"
-                className="absolute inset-0 w-full h-full object-contain pointer-events-none"
-              />
-
-              {/* Original Image (Clipped layer on the left) */}
-              <div
-                className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none"
-                style={{ clipPath: `inset(0 ${100 - splitPos}% 0 0)` }}
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={original.previewUrl}
-                  alt="Original Image"
-                  className="absolute inset-0 w-full h-full object-contain pointer-events-none"
-                />
-              </div>
-
-              {/* Divider Line & Draggable Handle */}
-              <div
-                className="absolute top-0 bottom-0 w-1 bg-white shadow-2xl cursor-ew-resize z-20 pointer-events-none"
-                style={{ left: `${splitPos}%` }}
-              >
-                <div className="absolute top-1/2 -translate-y-1/2 -left-4 w-9 h-9 rounded-full bg-blue-600 text-white shadow-xl flex items-center justify-center border-2 border-white pointer-events-auto cursor-ew-resize hover:scale-110 active:scale-95 transition-transform">
-                  <Sliders className="w-4 h-4 rotate-90" />
-                </div>
-              </div>
-
-              {/* Badges */}
-              <div className="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-black/70 backdrop-blur-md text-[11px] font-bold text-white border border-white/20 pointer-events-none z-10">
-                Original • {formatBytes(original.size)}
-              </div>
-              <div className="absolute top-3 right-3 px-2.5 py-1 rounded-lg bg-blue-600/80 backdrop-blur-md text-[11px] font-bold text-white border border-blue-400/30 pointer-events-none z-10">
-                Result • {formatBytes(result.size)} ({diff.text})
-              </div>
-
-              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-[11px] text-slate-300 pointer-events-none z-10 border border-white/10">
-                Drag slider left &amp; right to inspect fine details
-              </div>
-            </div>
-          )}
-
-          {/* 2. SIDE-BY-SIDE MODE */}
+          {/* 1. SIDE-BY-SIDE MODE */}
           {viewMode === 'side-by-side' && (
             <div className="w-full h-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-4 overflow-y-auto p-2">
               {/* Original Panel */}
@@ -274,7 +220,7 @@ export function ImageQualityModal({
             </div>
           )}
 
-          {/* 3. SINGLE ZOOM & PAN MODE */}
+          {/* 2. SINGLE ZOOM & PAN MODE */}
           {viewMode === 'single' && (
             <div className="relative w-full h-full flex flex-col items-center justify-center">
               {/* Zoom Controls floating toolbar */}
@@ -328,6 +274,60 @@ export function ImageQualityModal({
 
               <div className="absolute bottom-3 left-3 px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-md border border-slate-800 text-xs text-slate-400 font-mono">
                 Actual Size: {result.width} × {result.height} px • {formatBytes(result.size)}
+              </div>
+            </div>
+          )}
+
+          {/* 3. SPLIT COMPARISON SLIDER MODE */}
+          {viewMode === 'split' && (
+            <div
+              ref={splitContainerRef}
+              onPointerDown={handleSplitPointerDown}
+              onPointerMove={handleSplitPointerMove}
+              onPointerUp={handleSplitPointerUp}
+              className="relative w-full h-full max-w-4xl max-h-[580px] rounded-2xl overflow-hidden border border-slate-800 flex items-center justify-center cursor-ew-resize touch-none select-none"
+            >
+              {/* Processed Result (Background image) */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={result.url}
+                alt="Processed Result"
+                className="absolute inset-0 w-full h-full object-contain pointer-events-none"
+              />
+
+              {/* Original Image (Clipped layer on the left) */}
+              <div
+                className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none"
+                style={{ clipPath: `inset(0 ${100 - splitPos}% 0 0)` }}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={original.previewUrl}
+                  alt="Original Image"
+                  className="absolute inset-0 w-full h-full object-contain pointer-events-none"
+                />
+              </div>
+
+              {/* Divider Line & Draggable Handle */}
+              <div
+                className="absolute top-0 bottom-0 w-1 bg-white shadow-2xl cursor-ew-resize z-20 pointer-events-none"
+                style={{ left: `${splitPos}%` }}
+              >
+                <div className="absolute top-1/2 -translate-y-1/2 -left-4 w-9 h-9 rounded-full bg-blue-600 text-white shadow-xl flex items-center justify-center border-2 border-white pointer-events-auto cursor-ew-resize hover:scale-110 active:scale-95 transition-transform">
+                  <Sliders className="w-4 h-4 rotate-90" />
+                </div>
+              </div>
+
+              {/* Badges */}
+              <div className="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-black/70 backdrop-blur-md text-[11px] font-bold text-white border border-white/20 pointer-events-none z-10">
+                Original • {formatBytes(original.size)}
+              </div>
+              <div className="absolute top-3 right-3 px-2.5 py-1 rounded-lg bg-blue-600/80 backdrop-blur-md text-[11px] font-bold text-white border border-blue-400/30 pointer-events-none z-10">
+                Result • {formatBytes(result.size)} ({diff.text})
+              </div>
+
+              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-[11px] text-slate-300 pointer-events-none z-10 border border-white/10">
+                Drag slider left &amp; right to inspect fine details
               </div>
             </div>
           )}
