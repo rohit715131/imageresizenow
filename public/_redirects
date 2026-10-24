@@ -1,5 +1,11 @@
-# 301 Redirects: Consolidate preset routes to unified resize routes
+# Force apex domain and HTTPS for hosting environments evaluating _redirects
+http://imageresizenow.com/* https://imageresizenow.com/:splat 301
+https://www.imageresizenow.com/* https://imageresizenow.com/:splat 301
+http://www.imageresizenow.com/* https://imageresizenow.com/:splat 301
+
+# Consolidate legacy preset routes to unified resize routes
 /preset/instagram-post /resize/1080x1080 301
 /preset/youtube-thumbnail /resize/1280x720 301
 /preset/exam-signature /resize/exam-signature 301
 /preset/* /resize 301
+/resize/140x60 /resize/exam-signature 301

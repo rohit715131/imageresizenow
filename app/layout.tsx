@@ -10,11 +10,11 @@ export const metadata: Metadata = {
     canonical: "https://imageresizenow.com",
   },
   title: {
-    default: "Resize, Compress & Convert Images Online | ImageResizeNow",
+    default: "ResizeNow - Free Image Resizer, Compressor & Converter Online",
     template: "%s | ImageResizeNow",
   },
   description:
-    "Resize, compress, convert, and crop images in your browser for free. 100% private with client-side processing, no file limits, and zero server uploads.",
+    "ResizeNow is a 100% private in-browser image toolkit. Resize, compress, convert, and crop images in KB, pixels, or percentage with zero server uploads.",
   authors: [{ name: "ImageResizeNow Team" }],
   creator: "ImageResizeNow",
   publisher: "ImageResizeNow",
@@ -27,9 +27,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://imageresizenow.com",
     siteName: "ImageResizeNow",
-    title: "Resize, Compress & Convert Images Online | ImageResizeNow",
+    title: "ResizeNow - Free Image Resizer, Compressor & Converter Online",
     description:
-      "Resize, compress, convert, and crop images in your browser for free. 100% private with client-side processing, no file limits, and zero server uploads.",
+      "ResizeNow is a 100% private in-browser image toolkit. Resize, compress, convert, and crop images in KB, pixels, or percentage with zero server uploads.",
     images: [
       {
         url: "/og-image.png",
@@ -41,9 +41,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Resize, Compress & Convert Images Online | ImageResizeNow",
+    title: "ResizeNow - Free Image Resizer, Compressor & Converter Online",
     description:
-      "Resize, compress, convert, and crop images in your browser for free. 100% private with client-side processing, no file limits, and zero server uploads.",
+      "ResizeNow is a 100% private in-browser image toolkit. Resize, compress, convert, and crop images in KB, pixels, or percentage with zero server uploads.",
     images: ["/og-image.png"],
   },
   icons: {

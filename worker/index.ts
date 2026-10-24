@@ -196,6 +196,45 @@ export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
 
+    // 0. Canonical Domain & HTTPS Enforcement (Edge 301 Permanent Redirects)
+    const isLocalhost = url.hostname === 'localhost' || url.hostname === '127.0.0.1';
+    if (!isLocalhost) {
+      let shouldRedirect = false;
+      const targetUrl = new URL(request.url);
+
+      // Force HTTPS
+      if (url.protocol === 'http:') {
+        targetUrl.protocol = 'https:';
+        shouldRedirect = true;
+      }
+
+      // Redirect www.imageresizenow.com to apex imageresizenow.com
+      if (url.hostname === 'www.imageresizenow.com') {
+        targetUrl.hostname = 'imageresizenow.com';
+        shouldRedirect = true;
+      }
+
+      // Consolidate legacy /preset/ routes to unified /resize/ routes
+      const cleanPath = url.pathname.replace(/\/$/, '');
+      if (cleanPath === '/preset/instagram-post') {
+        targetUrl.pathname = '/resize/1080x1080';
+        shouldRedirect = true;
+      } else if (cleanPath === '/preset/youtube-thumbnail') {
+        targetUrl.pathname = '/resize/1280x720';
+        shouldRedirect = true;
+      } else if (cleanPath === '/preset/exam-signature') {
+        targetUrl.pathname = '/resize/exam-signature';
+        shouldRedirect = true;
+      } else if (cleanPath === '/resize/140x60') {
+        targetUrl.pathname = '/resize/exam-signature';
+        shouldRedirect = true;
+      }
+
+      if (shouldRedirect) {
+        return Response.redirect(targetUrl.toString(), 301);
+      }
+    }
+
     // 1. Handle CORS preflight
     if (request.method === 'OPTIONS') {
       return new Response(null, {

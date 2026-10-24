@@ -432,10 +432,10 @@ Important considerations:
   'compress-pdf-to-100kb': {
     slug: 'compress-pdf-to-100kb',
     route: '/compress-pdf-to-100kb',
-    title: 'Compress PDF to 100KB Online Free (Job & Govt Portals)',
+    title: 'Compress PDF to 100KB Online Free - Resize PDF to 100 KB',
     metaDescription:
-      'Compress PDF to 100KB online for job applications, university admissions, and government portals. 100% private client-side processing.',
-    h1: 'Compress PDF to 100KB Online Free',
+      'Compress and resize PDF to 100KB online free with zero uploads. Reduce PDF file size to 100 KB or less for job applications, SSC, UPSC, and university portals.',
+    h1: 'Compress & Resize PDF to 100KB Online Free',
     toolType: 'compress-pdf',
     badge: '100KB Target Mode',
     description:

@@ -22,6 +22,22 @@ export function JsonLd({
 }: JsonLdProps) {
   const schemas: object[] = [];
 
+  // WebSite Schema with brand alternateNames for Google
+  if (type === 'all' && url === 'https://imageresizenow.com') {
+    schemas.push({
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: 'ImageResizeNow',
+      alternateName: ['ResizeNow', 'Image Resize Now', 'ResizeNow Online', 'Resize Now'],
+      url: 'https://imageresizenow.com',
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: 'https://imageresizenow.com/resize?q={search_term_string}',
+        'query-input': 'required name=search_term_string',
+      },
+    });
+  }
+
   // SoftwareApplication / WebApplication Schema
   if (type === 'software' || type === 'all') {
     schemas.push({

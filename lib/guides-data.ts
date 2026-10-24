@@ -98,8 +98,8 @@ export const GUIDES: Record<string, GuideArticle> = {
   },
   'best-image-sizes-for-social-media': {
     slug: 'best-image-sizes-for-social-media',
-    title: 'Ultimate Social Media Image Size Guide (2026 Cheat Sheet)',
-    description: 'Exact pixel dimensions and aspect ratios for Instagram, YouTube, Facebook, Twitter/X, and LinkedIn. Keep your social graphics sharp and uncropped.',
+    title: 'Perfect Social Media Image Sizes (2026 Cheat Sheet & Guide)',
+    description: 'The perfect image size for Facebook, Twitter/X, Instagram, YouTube, and LinkedIn posts. Exact 2026 dimensions, aspect ratios, and file size limits.',
     date: 'October 17, 2026',
     readTime: '5 min read',
     category: 'Social Media Specs',
@@ -110,22 +110,30 @@ export const GUIDES: Record<string, GuideArticle> = {
         body: 'Social networks process millions of media uploads each hour. When you upload a picture that deviates from their recommended dimensions or exceeds file weight limits, their servers execute automatic cropping algorithms and aggressive re-compression. Sizing your graphics correctly prior to upload prevents this penalty.'
       },
       {
+        heading: 'Perfect Image Size for Facebook and Twitter/X Posts',
+        body: 'The perfect image size for Facebook feed posts and shared link cards is 1200 x 630 pixels (1.91:1 aspect ratio). For Twitter/X in-stream posts, the optimal dimensions are 1200 x 675 pixels (or 1600 x 900 pixels in 16:9 widescreen). Using these dimensions ensures your visuals display edge-to-edge without awkward letterboxing or pixelation:\n• Facebook Feed Post / Shared Link: 1200 × 630 px (1.91:1)\n• Facebook Cover Photo: 820 × 312 px (2.63:1)\n• Twitter/X In-Stream Graphic: 1200 × 675 px (16:9)\n• Twitter/X Header Banner: 1500 × 500 px (3:1)'
+      },
+      {
         heading: 'Instagram Recommended Dimensions',
         body: '• Square Post: 1080 x 1080 px (1:1 aspect ratio)\n• Portrait Post: 1080 x 1350 px (4:5 aspect ratio - occupies the most mobile feed screen space!)\n• Landscape Post: 1080 x 566 px (1.91:1 aspect ratio)\n• Stories & Reels: 1080 x 1920 px (9:16 vertical full screen)\n• Profile Picture: 320 x 320 px'
       },
       {
         heading: 'YouTube Creator Dimensions',
         body: '• Video Thumbnail: 1280 x 720 px (16:9 aspect ratio, minimum 640px width, max 2MB file size)\n• Channel Banner: 2560 x 1440 px (Safe area for mobile and text: 1546 x 423 px)\n• Profile Icon: 800 x 800 px'
-      },
-      {
-        heading: 'Facebook & Twitter/X Dimensions',
-        body: '• Facebook Feed Post: 1200 x 630 px (1.91:1)\n• Facebook Cover Photo: 820 x 312 px\n• Twitter/X In-Stream Photo: 1200 x 675 px (16:9)\n• Twitter/X Header Banner: 1500 x 500 px (3:1)'
       }
     ],
     faqs: [
       {
+        question: 'What is the perfect image size for Facebook and Twitter posts?',
+        answer: 'For Facebook feed posts and link previews, the perfect size is 1200 x 630 pixels (1.91:1 ratio). For Twitter/X in-stream posts, use 1200 x 675 pixels (16:9 ratio). Both sizes prevent automated cropping and maintain high clarity on mobile and desktop.'
+      },
+      {
         question: 'Which Instagram post size gets the most engagement?',
         answer: '1080 x 1350 pixels (4:5 portrait) generally achieves higher engagement because it fills more vertical screen real estate as users scroll down mobile feeds.'
+      },
+      {
+        question: 'What size is a 1920x1080 image?',
+        answer: 'A 1920x1080 image is Full High Definition (1080p Full HD) with a standard 16:9 widescreen aspect ratio. It contains 2,073,600 total pixels and is the universal standard for YouTube video stills, desktop wallpapers, and presentation slides.'
       }
     ]
   },
